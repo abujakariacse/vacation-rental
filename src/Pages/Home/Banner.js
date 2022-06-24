@@ -30,12 +30,12 @@ const Banner = () => {
     }
     return (
         <div>
-            <div className="hero min-h-screen bg-black ">
+            <div className="hero min-h-screen bg-black bg-[url('https://i.ibb.co/gJWwZzf/banner.jpg')]">
                 <div className="md:grid grid-cols-2 justify-items-end items-center">
                     <div className='my-10 md:my-0'>
-                        <h4 className='text-white text-xl font-[poppins]'>Welcome to Vacation Renta</h4>
-                        <h1 className="md:text-7xl text-4xl text-white font-bold">Rent an appartment</h1>
-                        <h1 className="md:text-7xl text-4xl font-bold font-[poppins] text-white">for your vacation</h1>
+                        <h4 className='text-black text-xl font-[poppins]'>Welcome to Vacation Renta</h4>
+                        <h1 className="md:text-7xl text-4xl text-back font-bold text-black">Rent an appartment</h1>
+                        <h1 className="md:text-7xl text-4xl font-bold font-[poppins] text-black">for your vacation</h1>
                         <div className='mt-6 md:block flex justify-around'>
                             <Button>Learn More</Button>
                             <Button>Contact Us</Button>
