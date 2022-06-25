@@ -1,11 +1,10 @@
 import React from 'react';
-import { useQuery } from 'react-query';
+import useRooms from '../../hooks/useRooms';
 import Loader from '../Shared/Loader';
 import Room from '../Shared/Room';
 
 const Rooms = () => {
-    const { data: rooms, isLoading } = useQuery('rooms', () => fetch('http://localhost:5000/rooms')
-        .then(res => res.json()))
+    const [rooms, isLoading] = useRooms();
 
     if (isLoading) {
         return <Loader />

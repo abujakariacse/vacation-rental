@@ -3,11 +3,10 @@ import { Parallax } from 'react-parallax';
 import BannerImg from '../images/about-banner.webp';
 import Room from './Shared/Room';
 import Loader from './Shared/Loader';
-import { useQuery } from 'react-query'
+import useRooms from '../hooks/useRooms';
 
 const AppartmentRooms = () => {
-    const { data: rooms, isLoading } = useQuery('rooms', () => fetch('http://localhost:5000/rooms')
-        .then(res => res.json()))
+    const [rooms, isLoading] = useRooms();
 
     if (isLoading) {
         return <Loader />
