@@ -1,5 +1,5 @@
 import React from 'react';
-import ApartmentRoom from './ApartmentRoom';
+import ApartpartmentRoom from './ApartmentRoom';
 
 const ApartmentRooms = () => {
     const rooms = [
@@ -45,10 +45,10 @@ const ApartmentRooms = () => {
             <h2 className='md:text-5xl text-4xl text-gray text-center'>Apartment Room</h2>
             <div className='md:grid grid-cols-2 gap-10 my-14 md:mx-20'>
                 {
-                    rooms.map(room => <ApartmentRoom
+                    rooms.map(room => <ApartpartmentRoom
                         key={room._id}
                         room={room}>
-                    </ApartmentRoom>)
+                    </ApartpartmentRoom>)
                 }
             </div>
         </div>
