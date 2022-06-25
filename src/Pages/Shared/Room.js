@@ -1,11 +1,12 @@
 import React from 'react';
 
-const ApartmentRoom = ({ room }) => {
-    const { image, name, max, size, view, bed } = room;
+const Room = ({ room }) => {
+    const { image, name, max, size, view, bed, rentFee } = room;
     return (
         <div className="room-card card lg:card-side bg-base-100 shadow-2xl mx-auto hover:bg-secondary transition-all duration-500 rounded-sm w-11/12 md:w-full my-8 ">
             <figure><img style={{ width: '400px', height: '350px' }} src={image} alt="rooms_image" /></figure>
             <div className="card-body mx-auto">
+                <h4 className='price text-xl text-primary'>${rentFee} <span className='price text-gray-500 text-base'>per night</span></h4>
                 <h2 className="text-xl font-semibold">{name}</h2>
                 <h4>Max: {max}</h4>
                 <h4>Size: {size}</h4>
@@ -20,4 +21,4 @@ const ApartmentRoom = ({ room }) => {
     );
 };
 
-export default ApartmentRoom;
+export default Room;

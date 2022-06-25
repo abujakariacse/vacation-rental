@@ -12,6 +12,7 @@
     "react-dom": "^18.0.0",
     "react-loader-spinner": "^5.1.5",
     "react-parallax": "^3.5.1",
+    "react-query": "^3.39.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.0",
     "swiper": "^8.2.4",

@@ -10,6 +10,14 @@
   pointer-events: none;
 }
 
+.room-card:hover {
+  color: white;
+}
+
+.room-card:hover .price {
+  color: white;
+}
+
 .room-card button {
   border: 2px solid lightgray;
 }
@@ -17,6 +25,7 @@
 .room-card:hover button {
   background-color: white;
   border: none;
+
 }
 
 
@@ -54,6 +63,23 @@
 .swiper-pagination-bullet-active {
   background: #F43F5E !important;
 }
+
+.parallex-gradient {
+  background-color: #0000003b;
+  opacity: 1;
+}
+
+.banner-gradient {
+  background-color: #0000003b;
+  opacity: 1;
+}
+
+@media only screen and (max-width: 688px) {
+  .parallax-image {
+    height: 400px !important;
+  }
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

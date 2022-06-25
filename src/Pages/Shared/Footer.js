@@ -39,7 +39,7 @@ const Footer = () => {
                     </div>
                 </div>
             </footer>
-            <footer class="footer footer-center p-4 bg-neutral text-white">
+            <footer className="footer footer-center p-4 bg-neutral text-white">
                 <div>
                     <p className='text-base select-none'>Copyright © {year} - All right reserved by <span>
                         <i className="text-rose-700 text-base fa-solid fa-angle-left"></i>
