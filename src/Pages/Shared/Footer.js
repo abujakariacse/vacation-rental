@@ -33,15 +33,23 @@ const Footer = () => {
                             <span className="label-text text-white">Enter your email address</span>
                         </label>
                         <div className="relative">
-                            <input type="text" placeholder="username@providername.com" className="input input-bordered w-full pr-16" />
-                            <button className="btn btn-primary absolute top-0 right-0 rounded-l-none">Subscribe</button>
+                            <input type="text" placeholder="username@abc.com" className="input input-bordered w-full pr-16" />
+                            <button className="btn btn-secondary absolute top-0 right-0 rounded-l-none">Subscribe</button>
                         </div>
                     </div>
                 </div>
             </footer>
             <footer class="footer footer-center p-4 bg-neutral text-white">
                 <div>
-                    <p className='text-base'>Copyright © {year} - All right reserved by Abu Jakaria</p>
+                    <p className='text-base select-none'>Copyright © {year} - All right reserved by <span>
+                        <i className="text-rose-700 text-base fa-solid fa-angle-left"></i>
+                        <span className='cursor-pointer' style={{ color: '#E21717' }}>
+                            <a href="https://github.com/abujakariacse" target='_blank' rel='noreferrer'>abujakariacse/</a>
+                        </span>
+                        <i className="text-rose-700 text-base fa-solid fa-angle-right"></i>
+
+
+                    </span></p>
                 </div>
             </footer>
         </div>
