@@ -2,7 +2,7 @@ import React from 'react';
 import { Parallax } from 'react-parallax';
 import BannerImg from '../images/about-banner.webp';
 import Room from './Shared/Room';
-import Loader from './Loader';
+import Loader from './Shared/Loader';
 import { useQuery } from 'react-query'
 
 const AppartmentRooms = () => {

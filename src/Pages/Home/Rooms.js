@@ -1,6 +1,6 @@
 import React from 'react';
-import { useQuery } from 'react-query'
-import Loader from '../Loader';
+import { useQuery } from 'react-query';
+import Loader from '../Shared/Loader';
 import Room from '../Shared/Room';
 
 const Rooms = () => {

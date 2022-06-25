@@ -1,22 +1,22 @@
 import React from 'react';
 import Banner from './Banner';
-import Blogs from './Blogs';
 import GetReady from './GetReady';
-import Offer from './Offer';
+import OurOffer from './OurOffer';
+import HomepageBlogs from '../Home/HomepageBlogs';
 import Reviews from './Reviews';
-import Services from '../Shared/Services';
+import OurServices from '../Shared/OurServices';
 import Rooms from './Rooms';
 
 const Home = () => {
     return (
         <div>
             <Banner />
-            <Services />
+            <OurServices />
             <Rooms />
             <Reviews />
-            <Offer />
+            <OurOffer />
             <GetReady />
-            <Blogs />
+            <HomepageBlogs />
         </div>
     );
 };

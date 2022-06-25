@@ -10,7 +10,7 @@ import { Pagination, Navigation } from "swiper";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useQuery } from "react-query";
-import Loader from "../Loader";
+import Loader from "../Shared/Loader";
 
 const Reviews = () => {
     const [windowSize, setWindowSize] = useState(window.innerWidth);

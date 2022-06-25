@@ -4,9 +4,11 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import AppartmentRooms from './Pages/AppartmentRooms';
 import Home from './Pages/Home/Home';
-import Loader from './Pages/Loader';
+import Loader from './Pages/Shared/Loader';
 import Footer from './Pages/Shared/Footer';
 import Navbar from './Pages/Shared/Navbar';
+import Services from './Pages/Services';
+import Blogs from './Pages/Blogs';
 
 function App() {
   const [Loading, setLoading] = useState(false);
@@ -29,6 +31,8 @@ function App() {
         <Route path='/' element={<Home />}></Route>
         <Route path='home' element={<Home />}></Route>
         <Route path='appartmentrooms' element={<AppartmentRooms />}></Route>
+        <Route path='services' element={<Services />}></Route>
+        <Route path='blogs' element={<Blogs />}></Route>
       </Routes>
       <Footer />
     </div>

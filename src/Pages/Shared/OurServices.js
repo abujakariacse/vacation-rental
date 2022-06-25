@@ -1,9 +1,9 @@
 import React from 'react';
 import Service from './Service';
 import { useQuery } from "react-query";
-import Loader from '../Loader';
+import Loader from './Loader';
 
-const Services = () => {
+const OurServices = () => {
     const { data: services, isLoading } = useQuery('services', () =>
         fetch('http://localhost:5000/services')
             .then(res => res.json()));
@@ -21,4 +21,4 @@ const Services = () => {
     );
 };
 
-export default Services;
+export default OurServices;
