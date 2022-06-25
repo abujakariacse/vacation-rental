@@ -70,7 +70,12 @@
 }
 
 .banner-gradient {
-  background-color: #0000003b;
+  background-color: #0000002e;
+  opacity: 1;
+}
+
+.getStarted-parallax {
+  background-color: #e9567353;
   opacity: 1;
 }
 
