@@ -4,7 +4,7 @@ import Blogs from './Blogs';
 import GetReady from './GetReady';
 import Offer from './Offer';
 import Reviews from './Reviews';
-import Services from './Services';
+import Services from '../Shared/Services';
 import Rooms from './Rooms';
 
 const Home = () => {

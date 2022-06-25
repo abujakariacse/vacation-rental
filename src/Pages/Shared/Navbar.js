@@ -4,7 +4,7 @@ import Button from './Button';
 
 const Navbar = () => {
     let links = [
-        { name: 'Home', link: '/home' },
+        { name: 'Home', link: '/' },
         { name: 'About', link: '/about' },
         { name: 'Service', link: '/service' },
         { name: 'Appartment Rooms', link: '/appartmentrooms' },

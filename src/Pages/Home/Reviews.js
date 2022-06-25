@@ -9,60 +9,24 @@ import "swiper/css/pagination";
 import { Pagination, Navigation } from "swiper";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useQuery } from "react-query";
+import Loader from "../Loader";
 
 const Reviews = () => {
     const [windowSize, setWindowSize] = useState(window.innerWidth);
-
     useEffect(() => {
         window.addEventListener('resize', () => setWindowSize(window.innerWidth))
 
         return window.removeEventListener('resize', () => setWindowSize(window.innerWidth));
-    }, [])
+    }, []);
 
-    const reviews = [
-        {
-            "_id": 1,
-            "image": "https://i.ibb.co/mtT5vYT/person-1.jpg",
-            "name": "Mark Huff",
-            "title": "Businessman",
-            "comment": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts."
-        },
-        {
-            "_id": 2,
-            "image": "https://i.ibb.co/4Pq5KKm/person-2.jpg",
-            "name": "Rock Henderson",
-            "title": "Engineer",
-            "comment": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts."
-        },
-        {
-            "_id": 3,
-            "image": "https://i.ibb.co/Wcd095d/person-3.jpg",
-            "name": "Henry Dee",
-            "title": "Doctor",
-            "comment": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts."
-        },
-        {
-            "_id": 4,
-            "image": "https://i.ibb.co/sRZG6Zv/person-4.jpg",
-            "name": "Ken Bosh",
-            "title": "Teacher",
-            "comment": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts."
-        },
-        {
-            "_id": 5,
-            "image": "https://i.ibb.co/4Pq5KKm/person-2.jpg",
-            "name": "Rodel Golez",
-            "title": "Social Activist",
-            "comment": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts."
-        },
-        {
-            "_id": 6,
-            "image": "https://i.ibb.co/4Pq5KKm/person-2.jpg",
-            "name": "Rodel Golez",
-            "title": "Social Activist",
-            "comment": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts."
-        }
-    ];
+    const { data: reviews, isLoading } = useQuery('reviews', () =>
+        fetch('http://localhost:5000/reviews')
+            .then(res => res.json()));
+    if (isLoading) {
+        return <Loader />
+    }
+
     return (
         <div className='bg-accent md:py-16 font-[Poppins]'>
             <h1 className='md:text-6xl text-2xl text-center'>Happy Clients & Feedbacks</h1>

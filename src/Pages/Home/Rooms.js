@@ -11,7 +11,7 @@ const Rooms = () => {
         return <Loader />
     }
     return (
-        <div className='bg-accent py-20 font-[Poppins]'>
+        <div className='bg-accent md:py-20 py-5 font-[Poppins]'>
             <h2 className='md:text-5xl text-4xl text-gray text-center'>Apartment Room</h2>
             <div className='md:grid grid-cols-2 gap-10 my-14 md:mx-20'>
                 {
