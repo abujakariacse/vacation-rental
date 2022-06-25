@@ -1,12 +1,10 @@
 import React from 'react';
+import useBlogs from '../../hooks/useBlogs';
 import Blog from '../Shared/Blog';
-import { useQuery } from "react-query";
 import Loader from '../Shared/Loader';
 
 const HomepageBlogs = () => {
-    const { data: blogs, isLoading } = useQuery('blogs', () =>
-        fetch('http://localhost:5000/blogs')
-            .then(res => res.json()))
+    const [blogs, isLoading] = useBlogs();
     if (isLoading) {
         return <Loader />
     }

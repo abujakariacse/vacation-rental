@@ -1,13 +1,11 @@
 import React from 'react';
 import BlogBannaer from '../images/blog-1.webp';
 import { Parallax } from 'react-parallax';
-import { useQuery } from 'react-query'
 import Loader from './Shared/Loader';
 import Blog from './Shared/Blog';
+import useBlogs from '../hooks/useBlogs';
 const Blogs = () => {
-    const { data: blogs, isLoading } = useQuery('blogs', () =>
-        fetch('http://localhost:5000/blogs')
-            .then(res => res.json()))
+    const [blogs, isLoading] = useBlogs();
     if (isLoading) {
         return <Loader />
     }
