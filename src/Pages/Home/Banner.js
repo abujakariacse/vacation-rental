@@ -33,7 +33,7 @@ const Banner = () => {
             <div className="hero min-h-screen bg-black bg-[url('https://i.ibb.co/gJWwZzf/banner.jpg')] font-[Poppins]">
                 <div className="grid md:grid-cols-2 grid-cols-1 justify-items-end items-center">
                     <div className='my-10 md:my-0 text-center'>
-                        <h4 className='text-black text-xl '>Welcome to Vacation Renta</h4>
+                        <h4 className='text-black text-xl '>Welcome to Vacation Rental</h4>
                         <h1 className="md:text-7xl text-4xl text-back font-bold text-black">Rent an appartment</h1>
                         <h1 className="md:text-7xl text-4xl font-bold text-black">for your vacation</h1>
                         <div className='mt-6 md:block flex justify-around'>
