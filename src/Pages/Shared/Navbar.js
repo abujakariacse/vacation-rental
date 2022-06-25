@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 import Button from './Button';
 
 const Navbar = () => {
+    let [open, setOpen] = useState(false);
+
+    const handleNavClose = e => {
+        setOpen(!open)
+    }
     let links = [
         { name: 'Home', link: '/' },
         { name: 'About', link: '/about' },
@@ -12,7 +17,7 @@ const Navbar = () => {
         { name: 'Contact', link: '/contact' },
 
     ];
-    let [open, setOpen] = useState(false);
+
     return (
         <div className='sticky z-50 font-[Poppins]'>
             <div className='bg-rose-500 md:flex justify-around py-2 hidden'>
@@ -39,7 +44,7 @@ const Navbar = () => {
                             links.map(link => <li
                                 className='md:ml-8 text-base md:my-0 my-5'
                                 key={link.name}>
-                                <Link className='text-gray focus:bg-rose-500 focus:text-white  focus:px-4 py-2 rounded-md hover:text-rose-500 duration-500'
+                                <Link onClick={handleNavClose} className='text-gray focus:bg-rose-500 focus:text-white  focus:px-4 py-2 rounded-md hover:text-rose-500 duration-500'
                                     to={link.link}>{link.name}</Link>
                             </li>)
                         }

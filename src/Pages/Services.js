@@ -8,7 +8,7 @@ const Services = () => {
     const styles = {
         "display": 'md:grid',
         "gridCols": 'grid-cols-4',
-        "marginX": "md:mx-24",
+        "marginX": "md:mx-24 mx-8",
         "paddingY": "md:py-6"
     }
     return (
