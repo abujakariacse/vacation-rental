@@ -30,22 +30,22 @@ const Banner = () => {
     }
     return (
         <div>
-            <div className="hero min-h-screen bg-black bg-[url('https://i.ibb.co/gJWwZzf/banner.jpg')]">
-                <div className="md:grid grid-cols-2 justify-items-end items-center">
-                    <div className='my-10 md:my-0'>
-                        <h4 className='text-black text-xl font-[poppins]'>Welcome to Vacation Renta</h4>
+            <div className="hero min-h-screen bg-black bg-[url('https://i.ibb.co/gJWwZzf/banner.jpg')] font-[Poppins]">
+                <div className="grid md:grid-cols-2 grid-cols-1 justify-items-end items-center">
+                    <div className='my-10 md:my-0 text-center'>
+                        <h4 className='text-black text-xl '>Welcome to Vacation Renta</h4>
                         <h1 className="md:text-7xl text-4xl text-back font-bold text-black">Rent an appartment</h1>
-                        <h1 className="md:text-7xl text-4xl font-bold font-[poppins] text-black">for your vacation</h1>
+                        <h1 className="md:text-7xl text-4xl font-bold text-black">for your vacation</h1>
                         <div className='mt-6 md:block flex justify-around'>
                             <Button>Learn More</Button>
                             <Button>Contact Us</Button>
                         </div>
                     </div>
-                    <div className="card md:w-96 bg-base-100 shadow-xl rounded-md w-80 my-10 md:my-0">
+                    <div className="card md:w-96 mx-auto md:mx-0 bg-base-100 shadow-xl rounded-md w-80 my-10 md:my-0">
                         <div className="card-body">
-                            <h2 className="text-2xl font-[poppins]">Book your apartment</h2>
+                            <h2 className="text-2xl">Book your apartment</h2>
                             <form onSubmit={handleSubmit} className='my-4'>
-                                <input type="text" name='name' placeholder="Your Name" className="input w-full max-w-xs bg-accent placeholder-black font-[poppins] my-2" />
+                                <input type="text" name='name' placeholder="Your Name" className="input w-full max-w-xs bg-accent placeholder-black  my-2" />
 
                                 <div className='grid grid-cols-2 gap-5 my-4'>
                                     <DatePicker
@@ -53,7 +53,7 @@ const Banner = () => {
                                         onChange={(date) => setCheckIn(date)}
                                         name='checkIn'
                                         dateFormatCalendar='pp'
-                                        className="input w-full max-w-xs bg-accent placeholder-black font-[poppins]"
+                                        className="input w-full max-w-xs bg-accent placeholder-black "
                                         placeholderText='Check-In'
                                     />
                                     <DatePicker
@@ -61,7 +61,7 @@ const Banner = () => {
                                         selected={checkOut}
                                         onChange={(date) => setCheckOut(date)}
                                         dateFormatCalendar='pp'
-                                        className="input w-full max-w-xs bg-accent placeholder-black font-[poppins]"
+                                        className="input w-full max-w-xs bg-accent placeholder-black"
                                         placeholderText='Check-Out'
                                     />
                                 </div>
@@ -85,17 +85,17 @@ const Banner = () => {
                                     </select>
                                 </div>
                                 <div className='grid grid-cols-2 gap-5 my-2'>
-                                    <input type="text" name='phone' placeholder="Phone Number" className="input w-full max-w-xs bg-accent placeholder-black font-[poppins]" />
-                                    <input type="time" name='time' placeholder="Select Time" className="input w-full max-w-xs bg-accent placeholder-black font-[poppins]" />
+                                    <input type="text" name='phone' placeholder="Phone Number" className="input w-full max-w-xs bg-accent placeholder-black" />
+                                    <input type="time" name='time' placeholder="Select Time" className="input w-full max-w-xs bg-accent placeholder-black " />
                                 </div>
-                                <input type="submit" value="Book Apartment Now" className='btn btn-secondary text-white font-[poppins] font-normal w-full mt-5' />
+                                <input type="submit" value="Book Apartment Now" className='btn btn-secondary text-white font-normal w-full mt-5' />
 
                             </form>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 

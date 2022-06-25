@@ -14,7 +14,7 @@ const Navbar = () => {
     ];
     let [open, setOpen] = useState(false);
     return (
-        <div className='sticky z-50'>
+        <div className='sticky z-50 font-[Poppins]'>
             <div className='bg-rose-500 md:flex justify-around py-2 hidden'>
                 <div>
                     <h3 className='text-white font-[poppins] text-sm'>Phone: +8801316460386 or Email: abujakariacse@gmail.com</h3>
@@ -37,7 +37,7 @@ const Navbar = () => {
                     <ul className={`md:flex md:items-center md:pb-0 pb-8 absolute md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-7 transition-all duration-500 ease-in ${open ? 'top-16 opacity-100' : 'top-[-490px] opacity-0'} md:opacity-100`}>
                         {
                             links.map(link => <li
-                                className='md:ml-8 text-base font-[poppins] md:my-0 my-5'
+                                className='md:ml-8 text-base md:my-0 my-5'
                                 key={link.name}>
                                 <Link className='text-gray focus:bg-rose-500 focus:text-white  focus:px-4 py-2 rounded-md hover:text-rose-500 duration-500'
                                     to={link.link}>{link.name}</Link>
