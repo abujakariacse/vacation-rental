@@ -1,6 +1,6 @@
 import React from 'react';
 import { Parallax } from 'react-parallax';
-import BannerImg from '../images/about-banner.webp';
+import RoomsBanner from '../images/about-banner.webp';
 import Room from './Shared/Room';
 import Loader from './Shared/Loader';
 import useRooms from '../hooks/useRooms';
@@ -13,7 +13,7 @@ const AppartmentRooms = () => {
     }
     return (
         <div className='font-[Poppins] min-h-screen'>
-            <Parallax bgImage={BannerImg} strength={400} bgClassName='parallax-image'>
+            <Parallax bgImage={RoomsBanner} strength={400} bgClassName='parallax-image'>
                 <div className='parallex-gradient h-96 flex justify-center items-center'>
                     <div>
                         <p className='text-lg text-white text-center mt-14 md:mt-0'>Home <i className='fa-solid fa-angle-right text-xs'></i> Rooms <i className='fa-solid fa-angle-right text-xs'></i></p>

@@ -1,6 +1,6 @@
 import React from 'react';
 import OurServices from './Shared/OurServices';
-import BannerImg from '../images/service-1.webp';
+import ServicesBanner from '../images/service-1.webp';
 import { Parallax } from 'react-parallax';
 import Amenities from './Shared/Amenities';
 
@@ -13,7 +13,7 @@ const Services = () => {
     }
     return (
         <div className='min-h-screen bg-accent'>
-            <Parallax bgImage={BannerImg} strength={500} bgImageStyle={{ height: '600px', width: '100%' }} bgClassName='parallax-image'>
+            <Parallax bgImage={ServicesBanner} strength={500} bgImageStyle={{ height: '600px', width: '100%' }} bgClassName='parallax-image'>
                 <div className='parallex-gradient h-96 flex justify-center items-center'>
                     <div>
                         <p className='text-lg text-white text-center mt-14 md:mt-0'>Home <i className='fa-solid fa-angle-right text-xs'></i> Services <i className='fa-solid fa-angle-right text-xs'></i></p>

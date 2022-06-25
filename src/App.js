@@ -9,6 +9,7 @@ import Footer from './Pages/Shared/Footer';
 import Navbar from './Pages/Shared/Navbar';
 import Services from './Pages/Services';
 import Blogs from './Pages/Blogs';
+import Contact from './Pages/Contact';
 
 function App() {
   const [Loading, setLoading] = useState(false);
@@ -33,6 +34,7 @@ function App() {
         <Route path='appartmentrooms' element={<AppartmentRooms />}></Route>
         <Route path='services' element={<Services />}></Route>
         <Route path='blogs' element={<Blogs />}></Route>
+        <Route path='contact' element={<Contact />}></Route>
       </Routes>
       <Footer />
     </div>
