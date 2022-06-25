@@ -48,6 +48,11 @@
   object-fit: cover;
 }
 
+.swiper-pagination-bullet-active {
+  background: #F43F5E !important;
+}
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
