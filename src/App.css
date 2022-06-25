@@ -7,6 +7,15 @@
   pointer-events: none;
 }
 
+.room-card button {
+  border: 2px solid lightgray;
+}
+
+.room-card:hover button {
+  background-color: white;
+  border: none;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
