@@ -29,7 +29,7 @@ const Reviews = () => {
 
     return (
         <div className='bg-accent lg:py-16 font-[Poppins]'>
-            <h1 className='lg:text-6xl text-2xl text-center'>Happy Clients & Feedbacks</h1>
+            <h1 className='lg:text-6xl text-xl text-center'>Happy Clients & Feedbacks</h1>
             <div style={{ height: '500px' }}>
                 <Swiper
                     slidesPerView={windowSize > 640 ? 3 : 1}

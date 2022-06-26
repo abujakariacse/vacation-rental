@@ -1,10 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
-import Button from '../Shared/Button';
+import PrimaryButton from '../Shared/PrimaryButton';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Parallax } from 'react-parallax';
 import BgImage from '../../images/banner.webp';
+import SecondaryButton from '../Shared/SecondaryButton';
 
 const Banner = () => {
     const [checkIn, setCheckIn] = useState(null);
@@ -41,8 +42,8 @@ const Banner = () => {
                                 <h1 className="lg:text-6xl text-3xl font-semibold my-5 text-white">Rent an appartment</h1>
                                 <h1 className="lg:text-6xl text-3xl font-semibold text-white">for your vacation</h1>
                                 <div className='mt-6 lg:block flex justify-around'>
-                                    <Button>Learn More</Button>
-                                    <Button>Contact Us</Button>
+                                    <PrimaryButton>Learn More</PrimaryButton>
+                                    <SecondaryButton>Contact Us</SecondaryButton>
                                 </div>
                             </div>
                             <div className="card lg:w-96 mx-auto lg:mx-0 bg-base-100 shadow-xl rounded-md w-80 my-4 lg:my-0 min-h-fit">
@@ -71,16 +72,16 @@ const Banner = () => {
                                         </div>
 
                                         <div className='grid grid-cols-2 gap-5 my-4'>
-                                            <select name='adult' className="select w-full max-w-xs bg-accent">
-                                                <option disabled selected>Adults</option>
+                                            <select defaultValue={'DEFAULT'} name='adult' className="select w-full max-w-xs bg-accent">
+                                                <option disabled value='DEFAULT'>Adults</option>
                                                 <option>1</option>
                                                 <option>2</option>
                                                 <option>3</option>
                                                 <option>4</option>
                                                 <option>5</option>
                                             </select>
-                                            <select name='child' className="select w-full max-w-xs bg-accent">
-                                                <option disabled selected>Children</option>
+                                            <select defaultValue={'DEFAULT'} name='child' className="select w-full max-w-xs bg-accent">
+                                                <option disabled value='DEFAULT'>Children</option>
                                                 <option>1</option>
                                                 <option>2</option>
                                                 <option>3</option>
@@ -92,7 +93,7 @@ const Banner = () => {
                                             <input type="text" name='phone' placeholder="Phone Number" className="input w-full max-w-xs bg-accent placeholder-black" />
                                             <input type="time" name='time' placeholder="Select Time" className="input w-full max-w-xs bg-accent placeholder-black " />
                                         </div>
-                                        <input type="submit" value="Book Apartment Now" className='btn btn-secondary text-white font-normal w-full mt-5' />
+                                        <input type="submit" value="Book Apartment Now" className='btn btn-secondary hover:bg-transparent hover:text-primary text-white font-normal w-full mt-5 rounded-sm' />
 
                                     </form>
                                 </div>

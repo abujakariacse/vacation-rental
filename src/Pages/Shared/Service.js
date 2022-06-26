@@ -1,9 +1,10 @@
 import React from 'react';
+import PrimaryButton from './PrimaryButton';
 
 const Service = ({ service }) => {
     const { image, serviceName, serviceDetail } = service;
     return (
-        <div className="card lg:w-96 w-80 mx-auto bg-base-100 shadow-2xl my-7">
+        <div className="card lg:w-96 w-80 mx-auto bg-base-100 shadow-xl my-7">
             <figure className="px-10 pt-10">
                 <img src={image} alt="service_image" className="rounded-xl" />
             </figure>
@@ -11,7 +12,7 @@ const Service = ({ service }) => {
                 <h2 className="card-title">{serviceName}</h2>
                 <p>{serviceDetail}</p>
                 <div className="card-actions">
-                    <button className="btn btn-secondary text-white font-normal">Read More</button>
+                    <PrimaryButton>Read More</PrimaryButton>
                 </div>
             </div>
         </div>

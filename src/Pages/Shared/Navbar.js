@@ -11,7 +11,7 @@ const Navbar = () => {
         { name: 'Home', link: '/' },
         { name: 'About', link: '/about' },
         { name: 'Service', link: '/services' },
-        { name: 'Appartment Rooms', link: '/appartmentrooms' },
+        { name: 'Room', link: '/room' },
         { name: 'Blog', link: '/blogs' },
         { name: 'Contact', link: '/contact' },
 
@@ -41,15 +41,19 @@ const Navbar = () => {
                     <ul className={`lg:flex lg:items-center lg:pb-0 pb-8 absolute lg:static bg-white lg:z-auto z-[-1] left-0 w-full lg:w-auto lg:pl-0 pl-7 transition-all duration-500 ease-in ${open ? 'top-16 opacity-100' : 'top-[-490px] opacity-0'} lg:opacity-100`}>
                         {
                             links.map(link => <li
-                                className='lg:ml-8 text-base lg:my-0 my-5'
+                                className='lg:ml-4 text-base lg:my-0 my-5'
                                 key={link.name}>
                                 <Link onClick={handleNavClose} className='text-gray focus:bg-rose-500 focus:text-white px-3 py-2 rounded-md hover:text-rose-500 duration-500'
                                     to={link.link}>{link.name}</Link>
                             </li>)
                         }
-                        <li className='lg:ml-8 text-base lg:my-0 my-5'>
+                        <li className='lg:ml-4 text-base lg:my-0 my-5'>
                             <Link onClick={handleNavClose} className='text-gray focus:bg-rose-500 focus:text-white px-3 py-2 rounded-md hover:text-rose-500 duration-500'
-                                to='/'>Login</Link>
+                                to='/login'>Login</Link>
+                        </li>
+                        <li className='lg:ml-4 text-base lg:my-0 my-5'>
+                            <Link onClick={handleNavClose} className='text-gray focus:bg-rose-500 focus:text-white px-3 py-2 rounded-md hover:text-rose-500 duration-500'
+                                to='/register'>Register</Link>
                         </li>
                     </ul>
 

@@ -41,8 +41,8 @@ const Contact = () => {
                         </div>
                     </form>
                 </div>
-                <div class="card lg:w-96 w-full mx-auto lg:mx-0 my-6 rounded-md bg-secondary shadow-xl text-white font-[Poppins]">
-                    <div class="card-body">
+                <div className="card lg:w-96 w-full mx-auto lg:mx-0 my-6 rounded-md bg-secondary shadow-xl text-white font-[Poppins]">
+                    <div className="card-body">
                         <h1 className='text-4xl font-semibold mb-3'>Let's get in touch</h1>
                         <h4 className='text-base'>We're open for any suggestion or just to have a chat</h4>
                         <div className='flex gap-4 mb-4 mt-8'>
