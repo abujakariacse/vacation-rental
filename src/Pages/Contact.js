@@ -14,34 +14,34 @@ const Contact = () => {
 
             </Parallax>
             <div className='flex justify-center gap-10 font-[Poppins] my-12'>
-                <div className="card w-6/12 bg-base-100 shadow-xl py-12 px-8">
+                <div className="card w-6/12 bg-base-100 shadow-xl py-12 px-8 rounded-md">
                     <h2 className='text-4xl'>Get in touch</h2>
                     <form>
                         <div className="grid grid-cols-2 gap-12">
                             <div className='my-4'>
                                 <label className='block font-semibold mb-3' htmlFor="name">Full Name</label>
-                                <input type="text" placeholder="Name" className="input input-bordered w-full max-w-xs focus:outline-none" />
+                                <input type="text" placeholder="Name" className="input input-bordered w-full max-w-xs focus:outline-none placeholder:text-base" />
                             </div>
                             <div className='my-4'>
                                 <label className='block font-semibold mb-3' htmlFor="email">Your Email</label>
-                                <input type="email" placeholder="Email" className="input input-bordered w-full max-w-xs focus:outline-none" />
+                                <input type="email" placeholder="Email" className="input input-bordered w-full max-w-xs focus:outline-none placeholder:text-base" />
                             </div>
 
                         </div>
-                        <div className='my-4'>
+                        <div>
                             <label className='block font-semibold mb-3' htmlFor="subject">Subject</label>
-                            <input type="text" placeholder="Subject" className="input input-bordered w-full  focus:outline-none" />
+                            <input type="text" placeholder="Subject" className="input input-bordered w-full  focus:outline-none placeholder:text-base" />
                         </div>
                         <div className='my-4'>
                             <label className='block font-semibold mb-3' htmlFor="message">Message</label>
-                            <textarea className="w-full focus:outline-none textarea textarea-bordered" placeholder="Your Message"></textarea>
+                            <textarea rows='5' className="w-full focus:outline-none textarea textarea-bordered placeholder:text-base resize-none col-auto" placeholder="Your Message"></textarea>
                         </div>
                         <div className='text-center'>
-                            <input className='bg-secondary px-6 py-3 rounded-md text-white mx-auto cursor-pointer font-semibold mb-3' type="submit" value="Send Message" />
+                            <input className='bg-secondary  px-6 py-3 rounded-md text-white mx-auto cursor-pointer font-semibold mb-3' type="submit" value="Send Message" />
                         </div>
                     </form>
                 </div>
-                <div class="card w-96 bg-secondary shadow-xl text-white font-[Poppins]">
+                <div class="card w-96 rounded-md bg-secondary shadow-xl text-white font-[Poppins]">
                     <div class="card-body">
                         <h1 className='text-4xl font-semibold mb-3'>Let's get in touch</h1>
                         <h4 className='text-base'>We're open for any suggestion or just to have a chat</h4>
