@@ -44,7 +44,7 @@ const Navbar = () => {
                             links.map(link => <li
                                 className='md:ml-8 text-base md:my-0 my-5'
                                 key={link.name}>
-                                <Link onClick={handleNavClose} className='text-gray focus:bg-rose-500 focus:text-white  focus:px-4 py-2 rounded-md hover:text-rose-500 duration-500'
+                                <Link onClick={handleNavClose} className='text-gray focus:bg-rose-500 focus:text-white px-3 py-2 rounded-md hover:text-rose-500 duration-500'
                                     to={link.link}>{link.name}</Link>
                             </li>)
                         }
