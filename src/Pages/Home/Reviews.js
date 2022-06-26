@@ -28,8 +28,8 @@ const Reviews = () => {
     }
 
     return (
-        <div className='bg-accent md:py-16 font-[Poppins]'>
-            <h1 className='md:text-6xl text-2xl text-center'>Happy Clients & Feedbacks</h1>
+        <div className='bg-accent lg:py-16 font-[Poppins]'>
+            <h1 className='lg:text-6xl text-2xl text-center'>Happy Clients & Feedbacks</h1>
             <div style={{ height: '500px' }}>
                 <Swiper
                     slidesPerView={windowSize > 640 ? 3 : 1}
@@ -46,7 +46,7 @@ const Reviews = () => {
                 >
                     {
                         reviews?.map(review => <SwiperSlide key={review._id}>
-                            <div className="card md:w-96 w-11/12 bg-base-100 shadow-2xl p-14 relative">
+                            <div className="card lg:w-96 w-11/12 bg-base-100 shadow-2xl p-14 relative">
                                 <div className="absolute top-0 left-44">
                                     <i className="fa-solid fa-quote-right text-2xl text-primary"></i>
                                 </div>

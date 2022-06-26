@@ -10,9 +10,9 @@ const Rooms = () => {
         return <Loader />
     }
     return (
-        <div className='bg-accent md:py-20 py-5 font-[Poppins]'>
-            <h2 className='md:text-5xl text-4xl text-gray text-center'>Apartment Room</h2>
-            <div className='md:grid grid-cols-2 gap-10 my-14 md:mx-20'>
+        <div className='bg-accent lg:py-20 py-5 font-[Poppins]'>
+            <h2 className='lg:text-5xl text-4xl text-gray text-center'>Apartment Room</h2>
+            <div className='lg:grid grid-cols-2 gap-10 my-14 lg:mx-20'>
                 {
                     rooms?.slice(0, 4).map(room => <Room
                         key={room._id}

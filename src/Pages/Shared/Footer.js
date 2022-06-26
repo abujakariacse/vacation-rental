@@ -41,8 +41,8 @@ const Footer = () => {
             </footer>
             <footer className="footer footer-center p-4 bg-neutral text-white">
                 <div>
-                    <p className='md:text-base select-none'>Copyright © {year} - All right reserved by <span>
-                        <span className='md:inline block'></span>
+                    <p className='lg:text-base select-none'>Copyright © {year} - All right reserved by <span>
+                        <span className='lg:inline block'></span>
                         <i className="text-rose-700 text-base fa-solid fa-angle-left"></i>
                         <span className='cursor-pointer' style={{ color: '#E21717' }}>
                             <a href="https://github.com/abujakariacse" target='_blank' rel='noreferrer'>abujakariacse/</a>

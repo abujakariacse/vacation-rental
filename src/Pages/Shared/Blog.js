@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Blog = ({ blog }) => {
     const { image, title, description, date, role } = blog;
     return (
-        <div className="card md:w-96 w-80 mx-auto md:mx-0 bg-base-100 shadow-xl my-4 rounded-sm">
+        <div className="card lg:w-96 w-80 mx-auto lg:mx-0 bg-base-100 shadow-xl my-4 rounded-sm">
             <img className='rounded-sm' src={image} alt="blog" />
             <div className="card-body items-center text-center">
                 <p><span className='text-primary'>{date} </span><span className='text-primary'>By {role}</span></p>

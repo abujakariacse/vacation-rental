@@ -7,41 +7,41 @@ const Contact = () => {
             <Parallax bgImage={ConactBanner} bgImageStyle={{ height: '600px', width: '100%' }} strength={400} bgClassName='parallax-image'>
                 <div className='parallex-gradient h-96 flex justify-center items-center'>
                     <div>
-                        <p className='text-lg text-white text-center mt-14 md:mt-0'>Home <i className='fa-solid fa-angle-right text-xs'></i> Contact <i className='fa-solid fa-angle-right text-xs'></i></p>
-                        <h1 className='md:text-6xl text-4xl font-serif text-white font-semibold md:mt-16'>Contact</h1>
+                        <p className='text-lg text-white text-center mt-14 lg:mt-0'>Home <i className='fa-solid fa-angle-right text-xs'></i> Contact <i className='fa-solid fa-angle-right text-xs'></i></p>
+                        <h1 className='lg:text-6xl text-4xl font-serif text-white font-semibold lg:mt-16'>Contact</h1>
                     </div>
                 </div>
 
             </Parallax>
-            <div className='md:flex justify-center gap-10 font-[Poppins] my-12'>
-                <div className="card w-full md:w-6/12 bg-base-100 shadow-xl py-12 my-6 px-8 rounded-md">
-                    <h2 className='text-4xl'>Get in touch</h2>
-                    <form>
+            <div className='lg:flex justify-center gap-10 font-[Poppins] my-12'>
+                <div className="card w-full lg:w-6/12 bg-base-100 shadow-xl py-12 my-6 px-8 rounded-md">
+                    <h2 className='text-4xl mb-4'>Get in touch</h2>
+                    <form className='contact-form'>
                         <div className="grid grid-cols-2 gap-12">
                             <div className='my-4'>
-                                <label className='block font-semibold mb-3' htmlFor="name">Full Name</label>
-                                <input type="text" placeholder="Name" className="input input-bordered w-full max-w-xs focus:outline-none placeholder:text-base" />
+                                <label className='block' htmlFor="name">Full Name</label>
+                                <input type="text" placeholder="Name" className="input rounded-none w-full max-w-xs focus:outline-none placeholder:text-base " />
                             </div>
                             <div className='my-4'>
-                                <label className='block font-semibold mb-3' htmlFor="email">Your Email</label>
-                                <input type="email" placeholder="Email" className="input input-bordered w-full max-w-xs focus:outline-none placeholder:text-base" />
+                                <label className='block' htmlFor="email">Your Email</label>
+                                <input type="email" placeholder="Email" className="input rounded-none w-full max-w-xs focus:outline-none placeholder:text-base" />
                             </div>
 
                         </div>
-                        <div>
-                            <label className='block font-semibold mb-3' htmlFor="subject">Subject</label>
-                            <input type="text" placeholder="Subject" className="input input-bordered w-full  focus:outline-none placeholder:text-base" />
-                        </div>
                         <div className='my-4'>
-                            <label className='block font-semibold mb-3' htmlFor="message">Message</label>
-                            <textarea rows='5' className="w-full focus:outline-none textarea textarea-bordered placeholder:text-base resize-none col-auto" placeholder="Your Message"></textarea>
+                            <label className='block' htmlFor="subject">Subject</label>
+                            <input type="text" placeholder="Subject" className="input rounded-none w-full  focus:outline-none placeholder:text-base" />
+                        </div>
+                        <div className='my-6'>
+                            <label className='block' htmlFor="message">Message</label>
+                            <textarea className="w-full focus:outline-none textarea col-auto rounded-none placeholder:text-base resize-none" placeholder="Your Message"></textarea>
                         </div>
                         <div className='text-center'>
-                            <input className='bg-secondary  px-6 py-3 rounded-md text-white mx-auto cursor-pointer font-semibold mb-3' type="submit" value="Send Message" />
+                            <input className='bg-secondary  px-5 py-3 rounded-md text-white mx-auto cursor-pointer font-semibold mb-3' type="submit" value="Send Message" />
                         </div>
                     </form>
                 </div>
-                <div class="card md:w-96 w-full mx-auto md:mx-0 my-6 rounded-md bg-secondary shadow-xl text-white font-[Poppins]">
+                <div class="card lg:w-96 w-full mx-auto lg:mx-0 my-6 rounded-md bg-secondary shadow-xl text-white font-[Poppins]">
                     <div class="card-body">
                         <h1 className='text-4xl font-semibold mb-3'>Let's get in touch</h1>
                         <h4 className='text-base'>We're open for any suggestion or just to have a chat</h4>

@@ -79,6 +79,25 @@
   opacity: 1;
 }
 
+.contact-form label {
+  margin-left: 5px;
+  font-weight: 500;
+  padding-bottom: 5px;
+}
+
+.contact-form input[type="text"],
+input[type="email"],
+textarea {
+  border-bottom: 2px solid lightgray !important;
+  padding: 4px;
+
+}
+
+.contact-form textarea {
+  padding: 0 8px;
+}
+
+
 @media only screen and (max-width: 688px) {
   .parallax-image {
     height: 400px !important;

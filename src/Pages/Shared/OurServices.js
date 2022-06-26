@@ -11,7 +11,7 @@ const OurServices = () => {
         return <Loader />
     }
     return (
-        <div className='md:grid grid-cols-3 gap-10 justify-items-center md:mx-14'>
+        <div className='lg:grid grid-cols-3 gap-10 justify-items-center lg:mx-14'>
             {
                 services?.map(service => <Service key={service._id} service={service}>
 

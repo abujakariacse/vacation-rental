@@ -35,17 +35,17 @@ const Banner = () => {
             <div className="min-h-screen font-[Poppins]">
                 <Parallax bgClassName='parallax-image' bgImage={BgImage} strength={400}>
                     <div className='banner-gradient'>
-                        <div className='min-h-screen grid md:grid-cols-2 grid-cols-1 items-center justify-items-end md:mx-28 font-serif'>
-                            <div className='my-10 md:my-0 mx-auto mt-28 md:mt-0'>
+                        <div className='min-h-screen grid lg:grid-cols-2 grid-cols-1 items-center justify-items-end lg:mx-28 font-serif'>
+                            <div className='my-10 lg:my-0 mx-auto mt-28 lg:mt-0'>
                                 <h4 className='text-white text-xl my-5'>Welcome to Vacation Rental</h4>
-                                <h1 className="md:text-6xl text-3xl font-semibold my-5 text-white">Rent an appartment</h1>
-                                <h1 className="md:text-6xl text-3xl font-semibold text-white">for your vacation</h1>
-                                <div className='mt-6 md:block flex justify-around'>
+                                <h1 className="lg:text-6xl text-3xl font-semibold my-5 text-white">Rent an appartment</h1>
+                                <h1 className="lg:text-6xl text-3xl font-semibold text-white">for your vacation</h1>
+                                <div className='mt-6 lg:block flex justify-around'>
                                     <Button>Learn More</Button>
                                     <Button>Contact Us</Button>
                                 </div>
                             </div>
-                            <div className="card md:w-96 mx-auto md:mx-0 bg-base-100 shadow-xl rounded-md w-80 my-4 md:my-0 min-h-fit">
+                            <div className="card lg:w-96 mx-auto lg:mx-0 bg-base-100 shadow-xl rounded-md w-80 my-4 lg:my-0 min-h-fit">
                                 <div className="card-body">
                                     <h2 className="text-2xl">Book your apartment</h2>
                                     <form onSubmit={handleSubmit} className='my-4'>
