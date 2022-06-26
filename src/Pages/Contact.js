@@ -13,8 +13,8 @@ const Contact = () => {
                 </div>
 
             </Parallax>
-            <div className='flex justify-center gap-10 font-[Poppins] my-12'>
-                <div className="card w-6/12 bg-base-100 shadow-xl py-12 px-8 rounded-md">
+            <div className='md:flex justify-center gap-10 font-[Poppins] my-12'>
+                <div className="card w-full md:w-6/12 bg-base-100 shadow-xl py-12 my-6 px-8 rounded-md">
                     <h2 className='text-4xl'>Get in touch</h2>
                     <form>
                         <div className="grid grid-cols-2 gap-12">
@@ -41,7 +41,7 @@ const Contact = () => {
                         </div>
                     </form>
                 </div>
-                <div class="card w-96 rounded-md bg-secondary shadow-xl text-white font-[Poppins]">
+                <div class="card md:w-96 w-full mx-auto md:mx-0 my-6 rounded-md bg-secondary shadow-xl text-white font-[Poppins]">
                     <div class="card-body">
                         <h1 className='text-4xl font-semibold mb-3'>Let's get in touch</h1>
                         <h4 className='text-base'>We're open for any suggestion or just to have a chat</h4>
