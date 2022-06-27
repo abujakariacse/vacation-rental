@@ -9,7 +9,7 @@ const OurOffer = () => {
         "marginY": "my-4"
     }
     return (
-        <div className='bg-accent lg:py-16 py-6'>
+        <div className='bg-accent lg:py-16 py-6 font-[Poppins]'>
             <div className='lg:grid grid-cols-2 lg:mx-20 gap-10'>
                 <div className='mx-4 lg:mx-0'>
                     <img src={OfferImg} alt="" />

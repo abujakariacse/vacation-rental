@@ -11,15 +11,18 @@ const OurServices = () => {
         return <Loader />
     };
     return (
-        <div className='lg:grid grid-cols-3 gap-10 justify-items-center lg:mx-14'>
-            {
-                services?.map(service => <Service
-                    key={service._id}
-                    service={service}
-                >
+        <div className=' font-[Poppins]'>
+            <h2 className='lg:text-5xl text-4xl text-gray text-center mt-12'>Why Choose Us</h2>
+            <div className='lg:grid grid-cols-3 gap-10 justify-items-center lg:mx-14'>
+                {
+                    services?.map(service => <Service
+                        key={service._id}
+                        service={service}
+                    >
 
-                </Service>)
-            }
+                    </Service>)
+                }
+            </div>
         </div>
     );
 };
