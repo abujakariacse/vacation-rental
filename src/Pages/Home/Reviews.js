@@ -45,23 +45,24 @@ const Reviews = () => {
                     className="mySwiper"
                 >
                     {
-                        reviews?.map(review => <SwiperSlide key={review._id}>
-                            <div className="card lg:w-96 w-11/12 bg-base-100 shadow-2xl p-14 relative">
-                                <div className="absolute top-0 left-44">
-                                    <i className="fa-solid fa-quote-right text-2xl text-primary"></i>
-                                </div>
-                                <div className="flex justify-between">
-                                    <img style={{ width: '80px', height: '80px', borderRadius: '50%' }} src={review.image} alt="" />
-                                    <div className="text-left ml-5">
-                                        <p className="text-slate-500 text-sm">{review.comment}</p>
-                                        <div className="my-4">
-                                            <h2 className="text-xl ">{review.name}</h2>
-                                            <h3 className="text-base text-slate-500">{review.title}</h3>
+                        reviews?.map(review =>
+                            <SwiperSlide key={review._id}>
+                                <div className="card lg:w-96 w-11/12 bg-base-100 shadow-2xl p-14 relative">
+                                    <div className="absolute top-0 left-44">
+                                        <i className="fa-solid fa-quote-right text-2xl text-primary"></i>
+                                    </div>
+                                    <div className="flex justify-between">
+                                        <img style={{ width: '80px', height: '80px', borderRadius: '50%' }} src={review.image} alt="" />
+                                        <div className="text-left ml-5">
+                                            <p className="text-slate-500 text-sm">{review.comment}</p>
+                                            <div className="my-4">
+                                                <h2 className="text-xl ">{review.name}</h2>
+                                                <h3 className="text-base text-slate-500">{review.title}</h3>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </SwiperSlide>)
+                            </SwiperSlide>)
                     }
                 </Swiper>
             </div>

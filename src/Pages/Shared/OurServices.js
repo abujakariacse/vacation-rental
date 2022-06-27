@@ -9,11 +9,14 @@ const OurServices = () => {
             .then(res => res.json()));
     if (isLoading) {
         return <Loader />
-    }
+    };
     return (
         <div className='lg:grid grid-cols-3 gap-10 justify-items-center lg:mx-14'>
             {
-                services?.map(service => <Service key={service._id} service={service}>
+                services?.map(service => <Service
+                    key={service._id}
+                    service={service}
+                >
 
                 </Service>)
             }

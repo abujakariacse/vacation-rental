@@ -1,10 +1,16 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import useRooms from '../../hooks/useRooms';
 import Loader from '../Shared/Loader';
 import Room from '../Shared/Room';
 
 const Rooms = () => {
     const [rooms, isLoading] = useRooms();
+    const navigate = useNavigate();
+    const hanldeRoomLoad = (_id) => {
+        navigate(`roomDetail/${_id}`)
+
+    }
 
     if (isLoading) {
         return <Loader />
@@ -16,7 +22,9 @@ const Rooms = () => {
                 {
                     rooms?.slice(0, 4).map(room => <Room
                         key={room._id}
-                        room={room}>
+                        room={room}
+                        hanldeRoomLoad={hanldeRoomLoad}
+                    >
                     </Room>)
                 }
             </div>

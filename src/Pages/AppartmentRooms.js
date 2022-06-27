@@ -4,13 +4,18 @@ import RoomsBanner from '../images/about-banner.webp';
 import Room from './Shared/Room';
 import Loader from './Shared/Loader';
 import useRooms from '../hooks/useRooms';
+import { useNavigate } from 'react-router-dom';
 
 const AppartmentRooms = () => {
     const [rooms, isLoading] = useRooms();
+    const navigate = useNavigate();
+    const hanldeRoomLoad = (_id) => {
+        navigate(`roomDetail/${_id}`)
+    }
 
     if (isLoading) {
         return <Loader />
-    }
+    };
     return (
         <div className='font-[Poppins] min-h-screen'>
             <Parallax bgImage={RoomsBanner} strength={400} bgClassName='parallax-image'>
@@ -27,7 +32,9 @@ const AppartmentRooms = () => {
                 {
                     rooms?.map(room => <Room
                         key={room._id}
-                        room={room}>
+                        room={room}
+                        hanldeRoomLoad={hanldeRoomLoad}
+                    >
                     </Room>)
                 }
             </div>

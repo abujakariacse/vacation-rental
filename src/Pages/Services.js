@@ -22,7 +22,7 @@ const Services = () => {
                 </div>
 
             </Parallax>
-            <OurServices />
+            <OurServices ></OurServices>
             <div>
                 <h1 className='text-5xl text-center my-6 font-serif'>Amenities</h1>
                 <Amenities styles={styles}></Amenities>

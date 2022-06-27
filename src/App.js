@@ -13,6 +13,7 @@ import Contact from './Pages/Contact';
 import About from './Pages/About';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
+import RoomDetail from './Pages/RoomDetail';
 
 function App() {
   const [Loading, setLoading] = useState(false);
@@ -41,6 +42,8 @@ function App() {
         <Route path='contact' element={<Contact />}></Route>
         <Route path='login' element={<Login />}></Route>
         <Route path='register' element={<Register />}></Route>
+        <Route path='roomDetail/:id' element={<RoomDetail />}></Route>
+        <Route path='room/roomDetail/:id' element={<RoomDetail />}></Route>
       </Routes>
       <Footer />
     </div>

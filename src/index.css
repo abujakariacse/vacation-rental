@@ -105,3 +105,14 @@ textarea {
 .contact-form textarea {
   padding: 0 8px;
 }
+
+.booking-card {
+  height: 450px;
+}
+
+
+@media only screen and (min-width: 688px) {
+  .room-img {
+    height: 600px !important;
+  }
+}

@@ -58,6 +58,7 @@ const Banner = () => {
                                                 onChange={(date) => setCheckIn(date)}
                                                 name='checkIn'
                                                 dateFormatCalendar='pp'
+                                                autoComplete='off'
                                                 className="input w-full max-w-xs bg-accent placeholder-black "
                                                 placeholderText='Check-In'
                                             />
@@ -66,6 +67,7 @@ const Banner = () => {
                                                 selected={checkOut}
                                                 onChange={(date) => setCheckOut(date)}
                                                 dateFormatCalendar='pp'
+                                                autoComplete='off'
                                                 className="input w-full max-w-xs bg-accent placeholder-black"
                                                 placeholderText='Check-Out'
                                             />
