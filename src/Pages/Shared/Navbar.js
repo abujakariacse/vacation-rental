@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     let [open, setOpen] = useState(false);
@@ -30,7 +30,7 @@ const Navbar = () => {
                     <i className="text-white mr-4 fa-brands fa-dribbble"></i>
                 </div>
             </div>
-            <div className='shadow-md lg:shadow-none w-full lg:top-12 left-0'>
+            <div className='nav shadow-md lg:shadow-none w-full lg:top-12 left-0'>
                 <div className='lg:flex flex items-center justify-between py-4  px-7 lg:mx-40'>
                     <div className='font-bold cursor-pointer text-xl'>
                         <Link to='/' className='text-2xl font-[poppins]'>Vacation<span className='text-rose-500'>Rental</span></Link>
@@ -43,17 +43,17 @@ const Navbar = () => {
                             links.map(link => <li
                                 className='lg:ml-4 text-base lg:my-0 my-5'
                                 key={link.name}>
-                                <Link onClick={handleNavClose} className='text-gray focus:bg-rose-500 focus:text-white px-3 py-2 rounded-md hover:text-rose-500 duration-500'
-                                    to={link.link}>{link.name}</Link>
+                                <NavLink onClick={handleNavClose} className='text-gray px-3 py-2 rounded-md hover:text-rose-500 duration-500'
+                                    to={link.link}>{link.name}</NavLink>
                             </li>)
                         }
                         <li className='lg:ml-4 text-base lg:my-0 my-5'>
-                            <Link onClick={handleNavClose} className='text-gray focus:bg-rose-500 focus:text-white px-3 py-2 rounded-md hover:text-rose-500 duration-500'
-                                to='/login'>Login</Link>
+                            <NavLink onClick={handleNavClose} className='text-gray px-3 py-2 rounded-md hover:text-rose-500 duration-500'
+                                to='/login'>Login</NavLink>
                         </li>
                         <li className='lg:ml-4 text-base lg:my-0 my-5'>
-                            <Link onClick={handleNavClose} className='text-gray focus:bg-rose-500 focus:text-white px-3 py-2 rounded-md hover:text-rose-500 duration-500'
-                                to='/register'>Register</Link>
+                            <NavLink onClick={handleNavClose} className='text-gray px-3 py-2 rounded-md hover:text-rose-500 duration-500'
+                                to='/register'>Register</NavLink>
                         </li>
                     </ul>
 
