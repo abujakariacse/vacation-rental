@@ -14,6 +14,7 @@ const Banner = () => {
     const [checkIn, setCheckIn] = useState(null);
     const [checkOut, setCheckOut] = useState(null);
     const navigate = useNavigate();
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const name = e.target.name.value;
