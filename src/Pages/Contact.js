@@ -1,7 +1,36 @@
 import React from 'react';
 import { Parallax } from 'react-parallax';
 import ConactBanner from '../images/blog-4.webp';
+import emailjs from "emailjs-com";
+import Swal from 'sweetalert2';
 const Contact = () => {
+    const sendEmail = e => {
+        e.preventDefault();
+        emailjs.sendForm('service_9ulo23e', 'template_gtuixc5', e.target, 'wP9lum0HGlnjFH5VE')
+            .then(res => {
+                console.log(res)
+                if (res.status === 200) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Email Sent',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+                else {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'error',
+                        title: 'Something went wrong',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+                e.target.reset();
+            })
+
+    }
     return (
         <div className='min-h-screen'>
             <Parallax bgImage={ConactBanner} bgImageStyle={{ height: '600px', width: '100%' }} strength={400} bgClassName='parallax-image'>
@@ -16,25 +45,25 @@ const Contact = () => {
             <div className='lg:flex justify-center gap-10 font-[Poppins] my-12'>
                 <div className="card w-full lg:w-6/12 bg-base-100 shadow-xl py-12 my-6 px-8 rounded-md">
                     <h2 className='text-4xl mb-4'>Get in touch</h2>
-                    <form className='contact-form'>
+                    <form onSubmit={sendEmail} className='contact-form'>
                         <div className="grid grid-cols-2 gap-12">
                             <div className='my-4'>
                                 <label className='block' htmlFor="name">Full Name</label>
-                                <input type="text" placeholder="Name" className="input rounded-none w-full max-w-xs focus:outline-none placeholder:text-base " />
+                                <input type="text" name='name' placeholder="Name" className="input rounded-none w-full max-w-xs focus:outline-none placeholder:text-base " required />
                             </div>
                             <div className='my-4'>
                                 <label className='block' htmlFor="email">Your Email</label>
-                                <input type="email" placeholder="Email" className="input rounded-none w-full max-w-xs focus:outline-none placeholder:text-base" />
+                                <input type="email" name='email' placeholder="Email" className="input rounded-none w-full max-w-xs focus:outline-none placeholder:text-base" required />
                             </div>
 
                         </div>
                         <div className='my-4'>
                             <label className='block' htmlFor="subject">Subject</label>
-                            <input type="text" placeholder="Subject" className="input rounded-none w-full  focus:outline-none placeholder:text-base" />
+                            <input type="text" name='subject' placeholder="Subject" className="input rounded-none w-full  focus:outline-none placeholder:text-base" required />
                         </div>
                         <div className='my-6'>
                             <label className='block' htmlFor="message">Message</label>
-                            <textarea className="w-full focus:outline-none textarea col-auto rounded-none placeholder:text-base resize-none" placeholder="Your Message"></textarea>
+                            <textarea name='message' className="w-full focus:outline-none textarea col-auto rounded-none placeholder:text-base resize-none" placeholder="Your Message" required></textarea>
                         </div>
                         <div className='text-center'>
                             <input className='bg-secondary  px-5 py-3 rounded-md text-white mx-auto cursor-pointer font-semibold mb-3' type="submit" value="Send Message" />

@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import WidthImg from '../images/icons/width.png';
 import BedImg from '../images/icons/bed.png';
 import InternetImg from '../images/icons/internet.png';
 import Loader from './Shared/Loader';
+import Swal from 'sweetalert2';
 
 const RoomDetail = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
     const { data: roomDetail, isLoading } = useQuery('roomDetail', () =>
         fetch(`http://localhost:5000/room/${id}`)
             .then(res => res.json())
@@ -28,7 +30,11 @@ const RoomDetail = () => {
         const time = e.target.time.value;
 
         if (checkIn === "" || checkOut === "" || quantity === "DEFAULT" || adult === "DEFAULT" || child === "DEFAULT" || time === "") {
-            return alert('Sry babe')
+            return Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Your booking form is incomplete',
+            })
         }
 
         // To calculate the difference between checkIn and checkOut
@@ -49,7 +55,10 @@ const RoomDetail = () => {
             time,
             Totaldays: days
         }
-        console.log(booking)
+        // to test localstorage
+        const stringifiedBooking = JSON.stringify(booking);
+        localStorage.setItem('cart', stringifiedBooking);
+        navigate('/cart');
     }
 
     if (isLoading) {
@@ -122,8 +131,8 @@ const RoomDetail = () => {
                                 </select>
                             </div>
                             <div className='grid grid-cols-2 gap-5 my-2'>
-                                <input type="text" name='phone' placeholder="Phone Number" className="input w-full max-w-xs bg-accent placeholder-black" required />
-                                <input type="time" name='time' placeholder="Select Time" className="input w-full max-w-xs bg-accent placeholder-black " />
+                                <input type="number" name='phone' placeholder="Phone Number" className="input w-full max-w-xs bg-accent placeholder-black" required />
+                                <input type="time" name='time' placeholder="Select Time" className="input w-full max-w-xs bg-accent placeholder-black " required />
                             </div>
                             <input type="submit" value="Book Apartment Now" className='btn btn-secondary hover:bg-transparent hover:text-primary text-white font-normal w-full mt-5 rounded-sm' />
 

@@ -6,12 +6,14 @@ import { Parallax } from 'react-parallax';
 import BgImage from '../../images/banner.webp';
 import useRooms from '../../hooks/useRooms';
 import Loader from '../Shared/Loader';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Banner = () => {
     const [room, isLoading] = useRooms();
     const [checkIn, setCheckIn] = useState(null);
     const [checkOut, setCheckOut] = useState(null);
+    const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
         const name = e.target.name.value;
@@ -30,7 +32,12 @@ const Banner = () => {
         const days = Math.ceil(totalTime / (1000 * 60 * 60 * 24))
 
         if (checkIn === "" || checkOut === "" || room === "DEFAULT" || quantity === "DEFAULT" || adult === "DEFAULT" || child === "DEFAULT" || time === "") {
-            return alert('Sry babe')
+            return Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Your booking form is incomplete',
+                confirmButtonColor: '#0D6EFD',
+            })
         }
 
         const booking = {
@@ -46,14 +53,12 @@ const Banner = () => {
             Totaldays: days,
 
         }
-        console.log(booking)
 
         // to test localstorage
-        /*  const stringifiedBooking = JSON.stringify(booking)
-         localStorage.setItem('cart', stringifiedBooking)
-         const bookingfromLS = localStorage.getItem('cart');
-         const newBooking = JSON.parse(bookingfromLS);
-         console.log('console log comes from ls', newBooking) */
+        const stringifiedBooking = JSON.stringify(booking);
+        localStorage.setItem('cart', stringifiedBooking);
+        navigate('/cart');
+
 
     };
     if (isLoading) {
@@ -86,7 +91,7 @@ const Banner = () => {
                                 <div className="card-body">
                                     <h2 className="text-2xl">Book your apartment</h2>
                                     <form onSubmit={handleSubmit} className='my-4'>
-                                        <input type="text" name='name' placeholder="Your Name" className="input w-full max-w-xs bg-accent placeholder-black  my-2" />
+                                        <input type="text" name='name' placeholder="Your Name" className="input w-full max-w-xs bg-accent placeholder-black  my-2" required />
 
                                         <div className='grid grid-cols-2 gap-5 my-4'>
                                             <DatePicker
@@ -148,8 +153,8 @@ const Banner = () => {
                                             </select>
                                         </div>
                                         <div className='grid grid-cols-2 gap-5 my-2'>
-                                            <input autoComplete='off' type="text" name='phone' placeholder="Phone Number" className="input w-full max-w-xs bg-accent placeholder-black" />
-                                            <input type="time" name='time' placeholder="Select Time" className="input w-full max-w-xs bg-accent placeholder-black " />
+                                            <input autoComplete='off' type="number" name='phone' placeholder="Phone Number" className="input w-full max-w-xs bg-accent placeholder-black" required />
+                                            <input type="time" name='time' placeholder="Select Time" className="input w-full max-w-xs bg-accent placeholder-black" required />
                                         </div>
                                         <input type="submit" value="Book Apartment Now" className='btn btn-secondary hover:bg-transparent hover:text-primary text-white font-normal w-full mt-5 rounded-sm' />
 

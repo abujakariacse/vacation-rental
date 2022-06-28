@@ -14,6 +14,7 @@ import About from './Pages/About';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
 import RoomDetail from './Pages/RoomDetail';
+import Cart from './Pages/Cart';
 
 function App() {
   const [Loading, setLoading] = useState(false);
@@ -43,6 +44,7 @@ function App() {
         <Route path='register' element={<Register />}></Route>
         <Route path='roomDetail/:id' element={<RoomDetail />}></Route>
         <Route path='room/roomDetail/:id' element={<RoomDetail />}></Route>
+        <Route path='cart' element={<Cart />}></Route>
       </Routes>
       <Footer />
     </div>
