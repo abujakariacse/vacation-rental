@@ -19,7 +19,9 @@ const Login = () => {
                         <div>
                             <div className='mb-5 lg:w-9/12 mx-auto'>
                                 <label className='block mb-1' htmlFor="email">Email Address</label>
-                                <input type="email" name='email' placeholder="Your Email" className="input input-bordered w-full max-w-lg focus:outline-none focus:border-2 text-base email-field" required />
+                                <div>
+                                    <input type="email" name='email' placeholder="Your Email" className="input input-bordered w-full max-w-lg focus:outline-none focus:border-2 text-base email-field" required />
+                                </div>
                             </div>
                             <div>
                                 <div className='my-4 lg:w-9/12 mx-auto'>
@@ -65,7 +67,7 @@ const Login = () => {
                             </button>
                         </div>
                         <div>
-                            <h2 className='text-center mt-5'>Don't have an account? <span className='font-semibold text-primary'><Link to='register'>Create Account</Link></span></h2>
+                            <h2 className='text-center mt-5 lg:text-base text-lg'>Don't have an account? <span className='font-semibold text-primary lg:inline block text-lg'><Link to='register'>Create Account</Link></span></h2>
                         </div>
                     </div>
                 </div>
