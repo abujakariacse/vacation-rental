@@ -11,12 +11,12 @@ const Login = () => {
     }
     return (
         <div className='font-[Poppins] bg-accent flex justify-center'>
-            <div className="card bg-base-100 lg:w-5/12 lg:shadow-md lg:rounded-md rounded-none lg:my-6 my-3 mb-8 lg:mb-6 lg:py-6">
+            <div className="card bg-base-100 lg:w-5/12 lg:shadow-md lg:rounded-md rounded-none lg:my-4 my-3 mb-8 lg:mb-6 lg:py-4">
                 <div className="card-body">
                     <h1 className='lg:text-3xl text-2xl font-bold mb-6 text-center'>Sign in to your account</h1>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div>
-                            <div className='mb-5 lg:w-9/12 mx-auto'>
+                            <div className='mb-2 lg:w-9/12 mx-auto'>
                                 <label className='block mb-1' htmlFor="email">Email Address</label>
                                 <div>
                                     <input
@@ -30,7 +30,7 @@ const Login = () => {
                                                 message: 'Provide a valid Email'
                                             }
                                         })}
-                                        type="email" name='email' placeholder="Your Email" className="input input-bordered w-full max-w-lg focus:outline-none focus:border-2 text-base email-field" />
+                                        type="email" name='email' placeholder="Your Email" className="input input-bordered w-full max-w-lg focus:outline-none focus:border-2 text-base input-field" />
                                     <label className="label">
                                         {errors.email?.type === 'required' && <span className="text-sm text-red-500">{errors.email.message}</span>}
                                         {errors.email?.type === 'pattern' && <span className="text-sm text-red-500">{errors.email.message}</span>}
@@ -38,7 +38,7 @@ const Login = () => {
                                 </div>
                             </div>
                             <div>
-                                <div className='my-4 lg:w-9/12 mx-auto'>
+                                <div className='mb-2 lg:w-9/12 mx-auto'>
                                     <label className='block mb-1' htmlFor="password">Password</label>
                                     <div className='input-group relative'>
                                         <input
@@ -79,7 +79,7 @@ const Login = () => {
                     </form>
                     <div>
 
-                        <div className='lg:w-9/12 mx-auto lg:mt-10'>
+                        <div className='lg:w-9/12 mx-auto lg:mt-6'>
                             <div className="divider">Or Continue With</div>
                         </div>
                         <div className='lg:w-8/12 w-11/12 mx-auto mt-6'>
@@ -96,7 +96,7 @@ const Login = () => {
                             </button>
                         </div>
                         <div>
-                            <h2 className='text-center mt-5 lg:text-base text-lg'>Don't have an account? <span className='font-semibold text-primary lg:inline block text-lg'><Link to='register'>Create Account</Link></span></h2>
+                            <h2 className='text-center mt-5 lg:text-base text-lg'>Don't have an account? <span className='font-semibold text-primary lg:inline block text-lg'><Link to='/register'>Create Account</Link></span></h2>
                         </div>
                     </div>
                 </div>
