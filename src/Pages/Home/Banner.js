@@ -29,6 +29,10 @@ const Banner = () => {
         const totalTime = Math.abs(dateTwo - dateOne);
         const days = Math.ceil(totalTime / (1000 * 60 * 60 * 24))
 
+        if (checkIn === "" || checkOut === "" || room === "DEFAULT" || quantity === "DEFAULT" || adult === "DEFAULT" || child === "DEFAULT" || time === "") {
+            return alert('Sry babe')
+        }
+
         const booking = {
             name,
             checkIn,
@@ -43,6 +47,14 @@ const Banner = () => {
 
         }
         console.log(booking)
+
+        // to test localstorage
+        /*  const stringifiedBooking = JSON.stringify(booking)
+         localStorage.setItem('cart', stringifiedBooking)
+         const bookingfromLS = localStorage.getItem('cart');
+         const newBooking = JSON.parse(bookingfromLS);
+         console.log('console log comes from ls', newBooking) */
+
     };
     if (isLoading) {
         return <Loader />
@@ -118,9 +130,10 @@ const Banner = () => {
                                         </div>
                                         <div className='grid grid-cols-2 gap-5 my-4'>
                                             <select defaultValue={'DEFAULT'} name='room' className="select w-full max-w-xs bg-accent">
-                                                <option disabled value='DEFAULT'>Rooms</option>
+                                                <option disabled >Rooms</option>
                                                 {
                                                     room?.map(r => <option
+                                                        value={r._id}
                                                         key={r._id}
                                                     >{r.name}</option>)
                                                 }

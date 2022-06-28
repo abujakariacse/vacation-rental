@@ -27,6 +27,10 @@ const RoomDetail = () => {
         const phone = e.target.phone.value;
         const time = e.target.time.value;
 
+        if (checkIn === "" || checkOut === "" || quantity === "DEFAULT" || adult === "DEFAULT" || child === "DEFAULT" || time === "") {
+            return alert('Sry babe')
+        }
+
         // To calculate the difference between checkIn and checkOut
         const dateOne = new Date(checkIn);
         const dateTwo = new Date(checkOut);
@@ -51,7 +55,7 @@ const RoomDetail = () => {
     if (isLoading) {
         return <Loader />
     };
-    const { name, image, rentFee, size, bed, view, max, detail } = roomDetail;
+    const { _id, name, image, rentFee, size, bed, view, max, detail } = roomDetail;
     return (
         <div className='bg-accent'>
             <div>
@@ -62,7 +66,7 @@ const RoomDetail = () => {
                     <div className="card-body">
                         <h2 className="text-2xl">Book your apartment</h2>
                         <form onSubmit={handleSubmit} className='my-4'>
-                            <input type="text" name='name' placeholder="Your Name" className="input w-full max-w-xs bg-accent placeholder-black  my-2" />
+                            <input type="text" name='name' placeholder="Your Name" className="input w-full max-w-xs bg-accent placeholder-black  my-2" required />
 
                             <div className='grid grid-cols-2 gap-5 my-4'>
                                 <DatePicker
@@ -96,6 +100,7 @@ const RoomDetail = () => {
                                 </select>
                                 <select defaultValue={'DEFAULT'} name='child' className="select w-full max-w-xs bg-accent">
                                     <option disabled value='DEFAULT'>Children</option>
+                                    <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -105,7 +110,7 @@ const RoomDetail = () => {
                             </div>
                             <div className='grid grid-cols-2 gap-5 my-4'>
                                 <select disabled defaultValue={'DEFAULT'} name='room' className="select w-full max-w-xs bg-accent">
-                                    <option value='DEFAULT'>{name}</option>
+                                    <option value={_id}>{name}</option>
                                 </select>
                                 <select defaultValue={'DEFAULT'} name='quantity' className="select w-full max-w-xs bg-accent">
                                     <option disabled value='DEFAULT'>Quantity</option>
@@ -117,7 +122,7 @@ const RoomDetail = () => {
                                 </select>
                             </div>
                             <div className='grid grid-cols-2 gap-5 my-2'>
-                                <input type="text" name='phone' placeholder="Phone Number" className="input w-full max-w-xs bg-accent placeholder-black" />
+                                <input type="text" name='phone' placeholder="Phone Number" className="input w-full max-w-xs bg-accent placeholder-black" required />
                                 <input type="time" name='time' placeholder="Select Time" className="input w-full max-w-xs bg-accent placeholder-black " />
                             </div>
                             <input type="submit" value="Book Apartment Now" className='btn btn-secondary hover:bg-transparent hover:text-primary text-white font-normal w-full mt-5 rounded-sm' />
@@ -128,7 +133,7 @@ const RoomDetail = () => {
                 <div className='mx-7 lg:mx-0'>
                     <h2 className='text-secondary mt-4'><Link to='/room'>Rooms and Suites</Link> <i className='fa-solid fa-angle-right text-xs'></i> <b>{name}</b></h2>
                     <h1 className='text-4xl text-secondary mt-6'>{name}</h1>
-                    <h2 className='text-xl mb-6 mt-2'> <span className='font-bold'><i class="fa-solid fa-tag"></i> ${rentFee}</span> (per night)</h2>
+                    <h2 className='text-xl mb-6 mt-2'> <span className='font-bold'><i className="fa-solid fa-tag"></i> ${rentFee}</span> (per night)</h2>
                     <div>
                         <div className='grid md:grid-cols-3 grid-cols-1 lg:gap-10 gap-5'>
                             <div className='flex lg:block items-center gap-3'>
