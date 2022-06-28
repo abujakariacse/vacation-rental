@@ -1,35 +1,64 @@
 import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useForm } from "react-hook-form";
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const handleFormSubmit = e => {
-        e.preventDefault();
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-        console.log(email, password);
+    const { register, formState: { errors }, handleSubmit } = useForm();
+    const onSubmit = data => {
+        console.log(data);
     }
     return (
         <div className='font-[Poppins] bg-accent flex justify-center'>
             <div className="card bg-base-100 lg:w-5/12 lg:shadow-md lg:rounded-md rounded-none lg:my-6 my-3 mb-8 lg:mb-6 lg:py-6">
                 <div className="card-body">
                     <h1 className='lg:text-3xl text-2xl font-bold mb-6 text-center'>Sign in to your account</h1>
-                    <form onSubmit={handleFormSubmit}>
+                    <form onSubmit={handleSubmit(onSubmit)}>
                         <div>
                             <div className='mb-5 lg:w-9/12 mx-auto'>
                                 <label className='block mb-1' htmlFor="email">Email Address</label>
                                 <div>
-                                    <input type="email" name='email' placeholder="Your Email" className="input input-bordered w-full max-w-lg focus:outline-none focus:border-2 text-base email-field" required />
+                                    <input
+                                        {...register("email", {
+                                            required: {
+                                                value: true,
+                                                message: 'Email is Required'
+                                            },
+                                            pattern: {
+                                                value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                                                message: 'Provide a valid Email'
+                                            }
+                                        })}
+                                        type="email" name='email' placeholder="Your Email" className="input input-bordered w-full max-w-lg focus:outline-none focus:border-2 text-base email-field" />
+                                    <label className="label">
+                                        {errors.email?.type === 'required' && <span className="text-sm text-red-500">{errors.email.message}</span>}
+                                        {errors.email?.type === 'pattern' && <span className="text-sm text-red-500">{errors.email.message}</span>}
+                                    </label>
                                 </div>
                             </div>
                             <div>
                                 <div className='my-4 lg:w-9/12 mx-auto'>
                                     <label className='block mb-1' htmlFor="password">Password</label>
                                     <div className='input-group relative'>
-                                        <input type={`${showPassword ? 'text' : 'password'}`} name='password' placeholder="Your password" className="input input-bordered w-full max-w-lg focus:outline-none focus:border-2 text-base  password-field" />
+                                        <input
+                                            {...register("password", {
+                                                required: {
+                                                    value: true,
+                                                    message: 'Password is Required'
+                                                },
+                                                minLength: {
+                                                    value: 6,
+                                                    message: 'Password must be 6 charecter or longer'
+                                                }
+                                            })}
+                                            type={`${showPassword ? 'text' : 'password'}`} name='password' placeholder="Your password" className="input input-bordered w-full max-w-lg focus:outline-none focus:border-2 text-base  password-field" />
                                         <span onClick={() => setShowPassword(!showPassword)} className='py-2 btn absolute right-1 bg-transparent text-black hover:bg-transparent border-none'> <i className={`fa-solid ${showPassword ? 'fa-eye-slash' : 'fa-eye'} text-xl`}></i></span>
                                     </div>
+                                    <label className="label">
+                                        {errors.password?.type === 'required' && <span className="text-sm text-red-500">{errors.password.message}</span>}
+                                        {errors.password?.type === 'minLength' && <span className="text-sm text-red-500">{errors.password.message}</span>}
+                                    </label>
                                 </div>
                             </div>
                             <div className='lg:w-9/12 mx-auto '>
