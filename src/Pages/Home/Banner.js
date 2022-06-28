@@ -5,9 +5,9 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Parallax } from 'react-parallax';
 import BgImage from '../../images/banner.webp';
 import useRooms from '../../hooks/useRooms';
-import Loader from '../Shared/Loader';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import ContentLoading from '../Shared/ContentLoading';
 
 const Banner = () => {
     const [room, isLoading] = useRooms();
@@ -62,7 +62,7 @@ const Banner = () => {
 
     };
     if (isLoading) {
-        return <Loader />
+        return <ContentLoading />
     }
     return (
         <div>

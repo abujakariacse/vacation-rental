@@ -1,14 +1,14 @@
 import React from 'react';
 import Service from './Service';
 import { useQuery } from "react-query";
-import Loader from './Loader';
+import ContentLoading from './ContentLoading';
 
 const OurServices = () => {
     const { data: services, isLoading } = useQuery('services', () =>
         fetch('http://localhost:5000/services')
             .then(res => res.json()));
     if (isLoading) {
-        return <Loader />
+        return <ContentLoading />
     };
     return (
         <div className=' font-[Poppins]'>

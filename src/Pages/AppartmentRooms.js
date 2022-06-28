@@ -2,9 +2,9 @@ import React from 'react';
 import { Parallax } from 'react-parallax';
 import RoomsBanner from '../images/about-banner.webp';
 import Room from './Shared/Room';
-import Loader from './Shared/Loader';
 import useRooms from '../hooks/useRooms';
 import { useNavigate } from 'react-router-dom';
+import ContentLoading from './Shared/ContentLoading';
 
 const AppartmentRooms = () => {
     const [rooms, isLoading] = useRooms();
@@ -14,7 +14,7 @@ const AppartmentRooms = () => {
     }
 
     if (isLoading) {
-        return <Loader />
+        return <ContentLoading />
     };
     return (
         <div className='font-[Poppins] min-h-screen'>

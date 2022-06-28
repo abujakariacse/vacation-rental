@@ -1,13 +1,13 @@
 import React from 'react';
 import BlogsBannaer from '../images/blog-1.webp';
 import { Parallax } from 'react-parallax';
-import Loader from './Shared/Loader';
 import Blog from './Shared/Blog';
 import useBlogs from '../hooks/useBlogs';
+import ContentLoading from './Shared/ContentLoading';
 const Blogs = () => {
     const [blogs, isLoading] = useBlogs();
     if (isLoading) {
-        return <Loader />
+        return <ContentLoading />
     }
     return (
         <div className=' min-h-screen'>

@@ -10,7 +10,7 @@ import { Pagination, Navigation } from "swiper";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useQuery } from "react-query";
-import Loader from "../Shared/Loader";
+import ContentLoading from "../Shared/ContentLoading";
 
 const Reviews = () => {
     const [windowSize, setWindowSize] = useState(window.innerWidth);
@@ -24,7 +24,7 @@ const Reviews = () => {
         fetch('http://localhost:5000/reviews')
             .then(res => res.json()));
     if (isLoading) {
-        return <Loader />
+        return <ContentLoading />
     }
 
     return (

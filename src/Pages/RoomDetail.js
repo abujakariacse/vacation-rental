@@ -5,8 +5,8 @@ import DatePicker from "react-datepicker";
 import WidthImg from '../images/icons/width.png';
 import BedImg from '../images/icons/bed.png';
 import InternetImg from '../images/icons/internet.png';
-import Loader from './Shared/Loader';
 import Swal from 'sweetalert2';
+import ContentLoading from './Shared/ContentLoading';
 
 const RoomDetail = () => {
     const { id } = useParams();
@@ -62,7 +62,7 @@ const RoomDetail = () => {
     }
 
     if (isLoading) {
-        return <Loader />
+        return <ContentLoading />
     };
     const { _id, name, image, rentFee, size, bed, view, max, detail } = roomDetail;
     return (
