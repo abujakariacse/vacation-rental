@@ -22,6 +22,8 @@ const RoomDetail = () => {
         const checkOut = e.target.checkOut.value;
         const adult = e.target.adult.value;
         const child = e.target.child.value;
+        const room = e.target.room.value;
+        const quantity = e.target.quantity.value;
         const phone = e.target.phone.value;
         const time = e.target.time.value;
 
@@ -37,6 +39,8 @@ const RoomDetail = () => {
             checkOut,
             adult,
             child,
+            room,
+            quantity,
             phone,
             time,
             Totaldays: days
@@ -53,7 +57,7 @@ const RoomDetail = () => {
             <div>
                 <img className='room-img w-80 lg:w-11/12 mx-auto rounded-md' src={image} alt="" />
             </div>
-            <div className='grid lg:grid-cols-2 grid-cols-1 lg:mx-28 font-serif'>
+            <div className='grid lg:grid-cols-2 grid-cols-1 lg:mx-28 font-serif pb-5'>
                 <div className="card booking-card lg:w-96 mx-auto lg:mx-0 bg-base-100 shadow-xl rounded-md w-80 my-4 lg:my-0 lg:mt-14">
                     <div className="card-body">
                         <h2 className="text-2xl">Book your apartment</h2>
@@ -99,6 +103,19 @@ const RoomDetail = () => {
                                     <option>5</option>
                                 </select>
                             </div>
+                            <div className='grid grid-cols-2 gap-5 my-4'>
+                                <select disabled defaultValue={'DEFAULT'} name='room' className="select w-full max-w-xs bg-accent">
+                                    <option value='DEFAULT'>{name}</option>
+                                </select>
+                                <select defaultValue={'DEFAULT'} name='quantity' className="select w-full max-w-xs bg-accent">
+                                    <option disabled value='DEFAULT'>Quantity</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
                             <div className='grid grid-cols-2 gap-5 my-2'>
                                 <input type="text" name='phone' placeholder="Phone Number" className="input w-full max-w-xs bg-accent placeholder-black" />
                                 <input type="time" name='time' placeholder="Select Time" className="input w-full max-w-xs bg-accent placeholder-black " />
@@ -110,18 +127,19 @@ const RoomDetail = () => {
                 </div>
                 <div className='mx-7 lg:mx-0'>
                     <h2 className='text-secondary mt-4'><Link to='/room'>Rooms and Suites</Link> <i className='fa-solid fa-angle-right text-xs'></i> <b>{name}</b></h2>
-                    <h1 className='text-4xl text-secondary my-6'>{name}</h1>
+                    <h1 className='text-4xl text-secondary mt-6'>{name}</h1>
+                    <h2 className='text-xl mb-6 mt-2'> <span className='font-bold'><i class="fa-solid fa-tag"></i> ${rentFee}</span> (per night)</h2>
                     <div>
                         <div className='grid md:grid-cols-3 grid-cols-1 lg:gap-10 gap-5'>
-                            <div className='flex lg:block'>
+                            <div className='flex lg:block items-center gap-3'>
                                 <img className='w-16 lg:ml-5' src={WidthImg} alt="" />
                                 <h2>{size} ({(size?.slice(0, 2) * 10)}sq-ft)</h2>
                             </div>
-                            <div className='flex lg:block'>
+                            <div className='flex lg:block items-center gap-3'>
                                 <img className='w-16 lg:ml-5' src={BedImg} alt="" />
                                 <h2>{bed} Queen-sized Bed</h2>
                             </div>
-                            <div className='flex lg:block'>
+                            <div className='flex lg:block items-center gap-3'>
                                 <img className='w-16 lg:ml-5' src={InternetImg} alt="" />
                                 <h2>Internet Services</h2>
                             </div>
@@ -129,7 +147,7 @@ const RoomDetail = () => {
                         <div className='my-6'>
                             <h2 className='text-4xl text-secondary'>Room Details</h2>
                             <h4 className='text-base my-2'>{detail}</h4>
-                            <p className='text-lg'><span className='font-bold'>View:</span> {view}, <span className='font-bold'>Holding capacity:</span> {max}, <span className='font-bold'>Rent:</span> ${rentFee} (per night)</p>
+                            <p className='text-lg'><span className='font-bold'>View:</span> {view}, <span className='font-bold'>Holding capacity:</span> {max}</p>
                         </div>
                     </div>
                     <div>
