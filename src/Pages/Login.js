@@ -30,7 +30,7 @@ const Login = () => {
                                                 message: 'Provide a valid Email'
                                             }
                                         })}
-                                        type="email" name='email' placeholder="Your Email" className="input input-bordered w-full max-w-lg focus:outline-none focus:border-2 text-base input-field" />
+                                        type="text" name='email' placeholder="Your Email" className="input input-bordered w-full max-w-lg focus:outline-none focus:border-2 text-base input-field" />
                                     <label className="label">
                                         {errors.email?.type === 'required' && <span className="text-sm text-red-500">{errors.email.message}</span>}
                                         {errors.email?.type === 'pattern' && <span className="text-sm text-red-500">{errors.email.message}</span>}

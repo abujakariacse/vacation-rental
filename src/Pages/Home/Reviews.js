@@ -28,7 +28,7 @@ const Reviews = () => {
     }
 
     return (
-        <div className='bg-accent lg:py-16 font-[Poppins]'>
+        <div className='bg-accent lg:py-6 font-[Poppins]'>
             <h1 className='lg:text-6xl text-xl text-center'>Happy Clients & Feedbacks</h1>
             <div style={{ height: '500px' }}>
                 <Swiper
