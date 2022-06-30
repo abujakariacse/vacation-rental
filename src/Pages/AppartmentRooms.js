@@ -10,7 +10,7 @@ const AppartmentRooms = () => {
     const [rooms, isLoading] = useRooms();
     const navigate = useNavigate();
     const hanldeRoomLoad = (_id) => {
-        navigate(`roomDetail/${_id}`)
+        navigate(`/roomDetail/${_id}`)
     }
 
     if (isLoading) {
