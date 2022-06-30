@@ -4,8 +4,13 @@ import { Parallax } from 'react-parallax';
 import Blog from './Shared/Blog';
 import useBlogs from '../hooks/useBlogs';
 import ContentLoading from './Shared/ContentLoading';
+import { useNavigate } from 'react-router-dom';
 const Blogs = () => {
+    const navigate = useNavigate();
     const [blogs, isLoading] = useBlogs();
+    const handleBlogLoad = _id => {
+        navigate(`/blogDetail/${_id}`)
+    }
     if (isLoading) {
         return <ContentLoading />
     }
@@ -25,6 +30,7 @@ const Blogs = () => {
                     blogs?.map(blog => <Blog
                         key={blog._id}
                         blog={blog}
+                        handleBlogLoad={handleBlogLoad}
                     ></Blog>)
                 }
             </div>

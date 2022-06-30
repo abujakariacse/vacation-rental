@@ -23,6 +23,7 @@ import AddReview from './Pages/Dashboard/AddReview';
 import AllBookings from './Pages/Dashboard/AllBookings';
 import Customers from './Pages/Dashboard/Customers';
 import Team from './Pages/Dashboard/Team';
+import BlogDetail from './Pages/BlogDetail';
 
 function App() {
   const [Loading, setLoading] = useState(false);
@@ -47,6 +48,7 @@ function App() {
         <Route path='room' element={<AppartmentRooms />}></Route>
         <Route path='services' element={<Services />}></Route>
         <Route path='blogs' element={<Blogs />}></Route>
+        <Route path='blogDetail/:id' element={<BlogDetail />}></Route>
         <Route path='contact' element={<Contact />}></Route>
         <Route path='login' element={<Login />}></Route>
         <Route path='register' element={<Register />}></Route>

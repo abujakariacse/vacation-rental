@@ -83,7 +83,7 @@ const Login = () => {
                             <div className="divider">Or Continue With</div>
                         </div>
                         <div className='lg:w-8/12 w-11/12 mx-auto mt-6'>
-                            <button className="btn btn-outline px-10 hover:bg-transparent hover:text-blue-600">
+                            <button className="btn btn-outline px-10 hover:bg-transparent hover:text-emerald-600">
                                 <i className="fa-brands fa-google text-3xl"></i>
                             </button>
                             <span className='mx-2'></span>

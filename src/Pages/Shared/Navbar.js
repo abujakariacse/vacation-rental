@@ -21,13 +21,21 @@ const Navbar = () => {
         <div className='sticky z-50 font-[Poppins]'>
             <div className='bg-rose-500 lg:flex justify-around py-2 hidden'>
                 <div>
-                    <h3 className='text-white font-[poppins] text-sm'>Phone: +8801316460386 or Email: abujakariacse@gmail.com</h3>
+                    <h3 className='text-white font-[poppins] text-sm'>Phone: +8801316460386 or Email: contact@vacationrental.com</h3>
                 </div>
                 <div>
-                    <i className="text-white mr-4 fa-brands fa-facebook-f"></i>
-                    <i className="text-white mr-4 fa-brands fa-twitter"></i>
-                    <i className="text-white mr-4 fa-brands fa-instagram"></i>
-                    <i className="text-white mr-4 fa-brands fa-dribbble"></i>
+                    <a href="https://facebook.com/vacation-rental" target='_blank' rel='noreferrer'>
+                        <i className="text-white mr-4 fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://twitter.com/vacation-rental" target='_blank' rel='noreferrer'>
+                        <i className="text-white mr-4 fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="https://instagram.com/vacation-rental" target='_blank' rel='noreferrer'>
+                        <i className="text-white mr-4 fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://dribble.com/vacationrental" target='_blank' rel='noreferrer'>
+                        <i className="text-white mr-4 fa-brands fa-dribbble"></i>
+                    </a>
                 </div>
             </div>
             <div className='nav shadow-md lg:shadow-none w-full lg:top-12 left-0'>

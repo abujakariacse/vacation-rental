@@ -1,10 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import useBlogs from '../../hooks/useBlogs';
 import Blog from '../Shared/Blog';
 import Loader from '../Shared/Loader';
 
 const HomepageBlogs = () => {
     const [blogs, isLoading] = useBlogs();
+    const navigate = useNavigate();
+    const handleBlogLoad = _id => {
+        navigate(`blogDetail/${_id}`)
+    }
     if (isLoading) {
         return <Loader />
     }
@@ -17,6 +22,7 @@ const HomepageBlogs = () => {
                     blogs?.slice(0, 3).map(blog => <Blog
                         key={blog._id}
                         blog={blog}
+                        handleBlogLoad={handleBlogLoad}
                     ></Blog>)
                 }
             </div>

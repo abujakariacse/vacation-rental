@@ -131,7 +131,7 @@ const RoomDetail = () => {
                                 </select>
                             </div>
                             <div className='grid grid-cols-2 gap-5 my-2'>
-                                <input type="number" name='phone' placeholder="Phone Number" className="input w-full max-w-xs bg-accent placeholder-black" required />
+                                <input autoComplete='off' type="number" name='phone' placeholder="Phone Number" className="input w-full max-w-xs bg-accent placeholder-black" required />
                                 <input type="time" name='time' placeholder="Select Time" className="input w-full max-w-xs bg-accent placeholder-black " required />
                             </div>
                             <input type="submit" value="Book Apartment Now" className='btn btn-secondary hover:bg-transparent hover:text-primary text-white font-normal w-full mt-5 rounded-sm' />
