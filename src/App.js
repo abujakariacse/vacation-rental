@@ -17,6 +17,7 @@ import RoomDetail from './Pages/RoomDetail';
 import Cart from './Pages/Cart';
 import PasswordReset from './Pages/PasswordReset';
 import NotFound from './Pages/NotFound';
+import Dashboard from './Pages/Dashboard';
 
 function App() {
   const [Loading, setLoading] = useState(false);
@@ -48,6 +49,7 @@ function App() {
         <Route path='roomDetail/:id' element={<RoomDetail />}></Route>
         <Route path='room/roomDetail/:id' element={<RoomDetail />}></Route>
         <Route path='cart' element={<Cart />}></Route>
+        <Route path='dashboard' element={<Dashboard />}></Route>
         <Route path='*' element={<NotFound />}></Route>
       </Routes>
       <Footer />

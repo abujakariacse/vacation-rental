@@ -49,12 +49,13 @@ const Navbar = () => {
                         }
                         <li className='lg:ml-4 text-base lg:my-0 my-5'>
                             <NavLink onClick={handleNavClose} className='text-gray px-3 py-2 rounded-md hover:text-rose-500 duration-500'
-                                to='/login'>Login</NavLink>
+                                to='/dashboard'>Dashboard</NavLink>
                         </li>
                         <li className='lg:ml-4 text-base lg:my-0 my-5'>
                             <NavLink onClick={handleNavClose} className='text-gray px-3 py-2 rounded-md hover:text-rose-500 duration-500'
-                                to='/register'>Register</NavLink>
+                                to='/login'>Login</NavLink>
                         </li>
+
                     </ul>
 
                 </div>

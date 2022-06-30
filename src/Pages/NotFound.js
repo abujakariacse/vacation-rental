@@ -5,9 +5,9 @@ const NotFound = () => {
     return (
         <section>
 
-            <div class="bg-black text-white">
-                <div class="flex h-screen">
-                    <div class="m-auto text-center">
+            <div className="bg-black text-white">
+                <div className="flex h-screen">
+                    <div className="m-auto text-center">
                         <div>
                             <svg className='w-80 lg:w-11/12 mx-auto lg:h-96 h-80' viewBox="0 0 631 379" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0)">
@@ -185,11 +185,11 @@ const NotFound = () => {
                             </svg>
 
                         </div>
-                        <p class="text-sm lg:text-base text-yellow-300 p-2 mb-4">The page your are looking for doesn't exist or an other error occurred.
+                        <p className="text-sm lg:text-base text-yellow-300 p-2 mb-4">The page your are looking for doesn't exist or an other error occurred.
                             Go back, or head over to <span className='font-semibold'>vacationrental.com</span> to choose a new direction.
                         </p>
                         <Link to='/'
-                            class="bg-transparent hover:bg-primary text-yellow-300 hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-yellow-300 hover:border-transparent"><i className="text-base fa-solid fa-arrow-rotate-left mr-2"></i> Go back to Homepage</Link>
+                            className="bg-transparent hover:bg-primary text-yellow-300 hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-yellow-300 hover:border-transparent"><i className="text-base fa-solid fa-arrow-rotate-left mr-2"></i> Go back to Homepage</Link>
                     </div>
                 </div>
             </div>
