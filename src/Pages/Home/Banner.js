@@ -13,6 +13,15 @@ const Banner = () => {
     const [room, isLoading] = useRooms();
     const [checkIn, setCheckIn] = useState(null);
     const [checkOut, setCheckOut] = useState(null);
+    const today = new Date();
+    const [minCheckInDate] = useState(new Date(today.toLocaleDateString()));
+    const [maxCheckInDate] = useState(new Date(today.setDate(today.getDate() + 30)));
+
+    // if checkIn date not available at first time this will work as default minTime. when checkin date will selected it will not work as min date
+    const [minCheckOutDate] = useState(new Date(today.setDate(today.getDate() - 30)));
+
+
+
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
@@ -30,7 +39,7 @@ const Banner = () => {
         const dateOne = new Date(checkIn);
         const dateTwo = new Date(checkOut);
         const totalTime = Math.abs(dateTwo - dateOne);
-        const days = Math.ceil(totalTime / (1000 * 60 * 60 * 24))
+        const days = Math.ceil(totalTime / (1000 * 60 * 60 * 24));
 
         if (checkIn === "" || checkOut === "" || room === "DEFAULT" || quantity === "DEFAULT" || adult === "DEFAULT" || child === "DEFAULT" || time === "") {
             return Swal.fire({
@@ -64,7 +73,7 @@ const Banner = () => {
     };
     if (isLoading) {
         return <ContentLoading />
-    }
+    };
     return (
         <div>
             <div className="min-h-screen font-[Poppins]">
@@ -92,10 +101,12 @@ const Banner = () => {
                                 <div className="card-body">
                                     <h2 className="text-2xl">Book your apartment</h2>
                                     <form onSubmit={handleSubmit} className='my-4'>
-                                        <input type="text" name='name' placeholder="Your Name" className="input w-full max-w-xs bg-accent placeholder-black  my-2" required />
+                                        <input type="text" name='name' placeholder="Your Name" className="input w-full max-w-xs bg-accent placeholder-black text-base my-2" required />
 
                                         <div className='grid grid-cols-2 gap-5 my-4'>
                                             <DatePicker
+                                                minDate={minCheckInDate}
+                                                maxDate={maxCheckInDate}
                                                 selected={checkIn}
                                                 onChange={(date) => setCheckIn(date)}
                                                 name='checkIn'
@@ -105,6 +116,7 @@ const Banner = () => {
                                                 placeholderText='Check-In'
                                             />
                                             <DatePicker
+                                                minDate={checkIn ? checkIn : minCheckOutDate}
                                                 name='checkOut'
                                                 selected={checkOut}
                                                 onChange={(date) => setCheckOut(date)}
@@ -118,11 +130,11 @@ const Banner = () => {
                                         <div className='grid grid-cols-2 gap-5 my-4'>
                                             <select defaultValue={'DEFAULT'} name='adult' className="select w-full max-w-xs bg-accent">
                                                 <option disabled value='DEFAULT'>Adults</option>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                                <option className='option-text'>1</option>
+                                                <option className='option-text'>2</option>
+                                                <option className='option-text'>3</option>
+                                                <option className='option-text'>4</option>
+                                                <option className='option-text'>5</option>
                                             </select>
                                             <select defaultValue={'DEFAULT'} name='child' className="select w-full max-w-xs bg-accent">
                                                 <option disabled value='DEFAULT'>Children</option>
@@ -154,8 +166,8 @@ const Banner = () => {
                                             </select>
                                         </div>
                                         <div className='grid grid-cols-2 gap-5 my-2'>
-                                            <input autoComplete='off' type="number" name='phone' placeholder="Phone Number" className="input w-full max-w-xs bg-accent placeholder-black" required />
-                                            <input type="time" name='time' placeholder="Select Time" className="input w-full max-w-xs bg-accent placeholder-black" required />
+                                            <input autoComplete='off' type="number" name='phone' placeholder="Phone" className="input w-full max-w-xs bg-accent placeholder-black text-base" required />
+                                            <input type="time" name='time' placeholder="Select Time" className="input w-full max-w-xs bg-accent placeholder-black text-base" required />
                                         </div>
                                         <input type="submit" value="Book Apartment Now" className='btn btn-secondary hover:bg-transparent hover:text-primary text-white font-normal w-full mt-5 rounded-sm' />
 
