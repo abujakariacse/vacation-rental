@@ -17,6 +17,14 @@ const RoomDetail = () => {
     );
     const [checkIn, setCheckIn] = useState(null);
     const [checkOut, setCheckOut] = useState(null);
+    // Set Calender Minimum Date
+    const today = new Date();
+    const [minCheckInDate] = useState(new Date(today.toLocaleDateString()));
+    const [maxCheckInDate] = useState(new Date(today.setDate(today.getDate() + 30)));
+
+    // if checkIn date not available at first time this will work as default minTime. when checkin date will selected it will not work as min date
+    const [minCheckOutDate] = useState(new Date(today.setDate(today.getDate() - 30)));
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const userName = e.target.name.value;
@@ -79,6 +87,8 @@ const RoomDetail = () => {
 
                             <div className='grid grid-cols-2 gap-5 my-4'>
                                 <DatePicker
+                                    minDate={minCheckInDate}
+                                    maxDate={maxCheckInDate}
                                     selected={checkIn}
                                     onChange={(date) => setCheckIn(date)}
                                     name='checkIn'
@@ -88,6 +98,7 @@ const RoomDetail = () => {
                                     placeholderText='Check-In'
                                 />
                                 <DatePicker
+                                    minDate={checkIn ? checkIn : minCheckOutDate}
                                     name='checkOut'
                                     selected={checkOut}
                                     onChange={(date) => setCheckOut(date)}

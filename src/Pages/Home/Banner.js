@@ -20,10 +20,7 @@ const Banner = () => {
     // if checkIn date not available at first time this will work as default minTime. when checkin date will selected it will not work as min date
     const [minCheckOutDate] = useState(new Date(today.setDate(today.getDate() - 30)));
 
-
-
     const navigate = useNavigate();
-
     const handleSubmit = (e) => {
         e.preventDefault();
         const userName = e.target.name.value;

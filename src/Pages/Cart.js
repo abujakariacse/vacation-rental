@@ -23,6 +23,7 @@ const Cart = () => {
             .then(data => setTargetRoom(data));
     }
     const totalCost = parseInt(targetRoom?.rentFee) * parseInt(totalDays) * parseInt(quantity);
+    const totalCostDayZero = parseInt(targetRoom?.rentFee) * parseInt(quantity);
     const hanleDeleteBooking = () => {
         localStorage.removeItem('cart');
     }
@@ -58,12 +59,12 @@ const Cart = () => {
                             <td className="border-grey-light border hover:bg-gray-100 p-3">{adult}</td>
                             <td className="border-grey-light border hover:bg-gray-100 p-3">{child}</td>
                             <td className="border-grey-light border hover:bg-gray-100 p-3">${targetRoom?.rentFee}</td>
-                            <td className="border-grey-light border hover:bg-gray-100 p-3">${totalCost}</td>
+                            <td className="border-grey-light border hover:bg-gray-100 p-3">${totalDays > 0 ? totalCost : totalCostDayZero}</td>
                             <td onClick={hanleDeleteBooking} className="border-grey-light border hover:bg-gray-100 p-3 text-red-600 hover:text-red-700 hover:font-medium cursor-pointer">Delete</td>
                         </tr>
                     </tbody>
                 </table>
-                <div className='flex justify-center'>
+                <div className='flex justify-center mb-5'>
                     <button className='bg-primary px-3 text-white font-[poppins] py-2 rounded lg:ml-8 hover:border border-primary hover:bg-transparent hover:text-primary duration-500'>
                         Proceed Booking
                     </button>
