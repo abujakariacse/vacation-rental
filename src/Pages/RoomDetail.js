@@ -6,7 +6,7 @@ import WidthImg from '../images/icons/width.png';
 import BedImg from '../images/icons/bed.png';
 import InternetImg from '../images/icons/internet.png';
 import Swal from 'sweetalert2';
-import ContentLoading from './Shared/ContentLoading';
+import Loader from './Shared/Loader';
 
 const RoomDetail = () => {
     const { id } = useParams();
@@ -66,11 +66,11 @@ const RoomDetail = () => {
         // to test localstorage
         const stringifiedBooking = JSON.stringify(booking);
         localStorage.setItem('cart', stringifiedBooking);
-        navigate('/cart');
+        navigate('dashboard/cart');
     }
 
     if (isLoading) {
-        return <ContentLoading />
+        return <Loader />
     };
     const { _id, name, image, rentFee, size, bed, view, max, detail } = roomDetail;
     return (

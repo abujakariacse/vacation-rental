@@ -4,7 +4,7 @@ import RoomsBanner from '../images/about-banner.webp';
 import Room from './Shared/Room';
 import useRooms from '../hooks/useRooms';
 import { useNavigate } from 'react-router-dom';
-import ContentLoading from './Shared/ContentLoading';
+import Loader from './Shared/Loader';
 
 const AppartmentRooms = () => {
     const [rooms, isLoading] = useRooms();
@@ -14,7 +14,7 @@ const AppartmentRooms = () => {
     }
 
     if (isLoading) {
-        return <ContentLoading />
+        return <Loader />
     };
     return (
         <div className='font-[Poppins] min-h-screen'>

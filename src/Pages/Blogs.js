@@ -3,8 +3,8 @@ import BlogsBannaer from '../images/blog-1.webp';
 import { Parallax } from 'react-parallax';
 import Blog from './Shared/Blog';
 import useBlogs from '../hooks/useBlogs';
-import ContentLoading from './Shared/ContentLoading';
 import { useNavigate } from 'react-router-dom';
+import Loader from './Shared/Loader';
 const Blogs = () => {
     const navigate = useNavigate();
     const [blogs, isLoading] = useBlogs();
@@ -12,7 +12,7 @@ const Blogs = () => {
         navigate(`/blogDetail/${_id}`)
     }
     if (isLoading) {
-        return <ContentLoading />
+        return <Loader />
     }
     return (
         <div className=' min-h-screen'>

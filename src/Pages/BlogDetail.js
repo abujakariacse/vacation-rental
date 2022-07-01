@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
-import ContentLoading from './Shared/ContentLoading';
+import Loader from './Shared/Loader';
 
 const BlogDetail = () => {
     const { id } = useParams();
@@ -12,7 +12,7 @@ const BlogDetail = () => {
     );
     let ratings = [1, 2, 3, 4];
     if (isLoading) {
-        return <ContentLoading />
+        return <Loader />
     };
     const { image, date, role, title, post } = blogdetail;
 

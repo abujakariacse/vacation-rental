@@ -7,7 +7,7 @@ import BgImage from '../../images/banner.webp';
 import useRooms from '../../hooks/useRooms';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import ContentLoading from '../Shared/ContentLoading';
+// import Loader from '../Shared/Loader';
 
 const Banner = () => {
     const [room, isLoading] = useRooms();
@@ -64,12 +64,12 @@ const Banner = () => {
         // to test localstorage
         const stringifiedBooking = JSON.stringify(booking);
         localStorage.setItem('cart', stringifiedBooking);
-        navigate('/cart');
+        navigate('dashboard/cart');
 
 
     };
     if (isLoading) {
-        return <ContentLoading />
+        return <p>Loading....</p>
     };
     return (
         <div>
@@ -145,7 +145,7 @@ const Banner = () => {
                                         </div>
                                         <div className='grid grid-cols-2 gap-5 my-4'>
                                             <select defaultValue={'DEFAULT'} name='room' className="select w-full max-w-xs bg-accent">
-                                                <option disabled >Rooms</option>
+                                                <option disabled value='DEFAULT' >Rooms</option>
                                                 {
                                                     room?.map(r => <option
                                                         value={r._id}

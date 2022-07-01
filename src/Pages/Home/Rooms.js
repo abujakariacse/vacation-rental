@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import useRooms from '../../hooks/useRooms';
-import ContentLoading from '../Shared/ContentLoading';
+import Loader from '../Shared/Loader';
 import Room from '../Shared/Room';
 
 const Rooms = () => {
@@ -13,7 +13,7 @@ const Rooms = () => {
     }
 
     if (isLoading) {
-        return <ContentLoading />
+        return <Loader />
     }
     return (
         <div className='bg-accent lg:py-20 py-5 font-[Poppins]'>

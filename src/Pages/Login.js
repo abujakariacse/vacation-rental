@@ -1,13 +1,36 @@
 import React from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
+import auth from '../firebase.init';
+import { useSignInWithGoogle, useSignInWithGithub, useSignInWithFacebook, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+    const [signInWithGithub, gitUser, gitLoading, gitError] = useSignInWithGithub(auth);
+    const [signInWithFacebook, fUser, fLoading, fError] = useSignInWithFacebook(auth);
+    const navigate = useNavigate();
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = data => {
-        console.log(data);
+        signInWithEmailAndPassword(data.email, data.password)
+    }
+    if (user || gUser || gitUser || fUser) {
+        console.log(user, gUser, gitUser, fUser);
+        navigate('/')
+    }
+    if (loading || gLoading || gitLoading || fLoading) {
+        console.log(loading, gLoading, gitLoading, fLoading, 'loading')
+    }
+    if (error || gError || gitError || fError) {
+        console.log(error, gError, gitError, fError)
     }
     return (
         <div className='font-[Poppins] bg-accent flex justify-center'>
@@ -83,15 +106,15 @@ const Login = () => {
                             <div className="divider">Or Continue With</div>
                         </div>
                         <div className='lg:w-8/12 w-11/12 mx-auto mt-6'>
-                            <button className="btn btn-outline px-10 hover:bg-transparent hover:text-emerald-600">
+                            <button onClick={() => signInWithGoogle()} className="btn btn-outline px-10 hover:bg-transparent hover:text-emerald-600">
                                 <i className="fa-brands fa-google text-3xl"></i>
                             </button>
                             <span className='mx-2'></span>
-                            <button className="btn btn-outline px-10 hover:bg-transparent hover:text-blue-700">
+                            <button onClick={() => signInWithFacebook()} className="btn btn-outline px-10 hover:bg-transparent hover:text-blue-700">
                                 <i className="fa-brands fa-facebook text-3xl"></i>
                             </button>
                             <span className='mx-2'></span>
-                            <button className="btn btn-outline px-10 lg:inline hidden hover:bg-transparent hover:text-black">
+                            <button onClick={() => signInWithGithub()} className="btn btn-outline px-10 lg:inline hidden hover:bg-transparent hover:text-black">
                                 <i className="fa-brands fa-github text-3xl"></i>
                             </button>
                         </div>

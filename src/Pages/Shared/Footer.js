@@ -55,7 +55,7 @@ const Footer = () => {
     const year = new Date().getFullYear();
     return (
         <div className='font-[Poppins]'>
-            <footer className="footer p-10 bg-neutral text-white">
+            <footer className="footer p-10  bg-neutral text-white">
                 <div>
                     <span className="footer-title">Services</span>
                     <Link to='/' className="link link-hover">Branding</Link>

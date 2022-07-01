@@ -25,7 +25,7 @@ const Dashboard = () => {
                                 <Link to='/dashboard'>
                                     <li className="mb-2 px-4 py-4 text-gray-100 flex flex-row  border-gray-300 hover:text-black   hover:bg-white  hover:font-bold rounded">
                                         <span>
-                                            <i class="fa-solid fa-bag-shopping"></i>
+                                            <i className="fa-solid fa-bag-shopping"></i>
                                         </span>
 
                                         <span className="ml-2">My Bookings</span>
@@ -34,7 +34,7 @@ const Dashboard = () => {
                                 <Link to='/dashboard/cart'>
                                     <li className="mb-2 px-4 py-4 text-gray-100 flex flex-row  border-gray-300 hover:text-black   hover:bg-white  hover:font-bold rounded">
                                         <span>
-                                            <i class="fa-solid fa-cart-plus"></i>
+                                            <i className="fa-solid fa-cart-plus"></i>
                                         </span>
                                         <span className="ml-2">My Cart</span>
                                     </li>
@@ -42,7 +42,7 @@ const Dashboard = () => {
                                 <Link to='/dashboard/addreview'>
                                     <li className="mb-2 px-4 py-4 text-gray-100 flex flex-row  border-gray-300 hover:text-black   hover:bg-white  hover:font-bold rounded">
                                         <span>
-                                            <i class="fa-solid fa-star-half-stroke"></i>
+                                            <i className="fa-solid fa-star-half-stroke"></i>
                                         </span>
                                         <span className="ml-2">Add a Review</span>
                                     </li>
@@ -50,7 +50,7 @@ const Dashboard = () => {
                                 <Link to='/dashboard/allbookings'>
                                     <li className="mb-2 px-4 py-4 text-gray-100 flex flex-row  border-gray-300 hover:text-black   hover:bg-white  hover:font-bold rounded">
                                         <span>
-                                            <i class="fa-solid fa-align-justify"></i>
+                                            <i className="fa-solid fa-align-justify"></i>
                                         </span>
                                         <span className="ml-2">All Bookings</span>
                                     </li>
@@ -58,7 +58,7 @@ const Dashboard = () => {
                                 <Link to='/dashboard/customers'>
                                     <li className="mb-2 px-4 py-4 text-gray-100 flex flex-row  border-gray-300 hover:text-black   hover:bg-white  hover:font-bold rounded">
                                         <span>
-                                            <i class="fa-solid fa-users"></i>
+                                            <i className="fa-solid fa-users"></i>
                                         </span>
                                         <span className="ml-2">Customers</span>
                                     </li>
@@ -66,7 +66,7 @@ const Dashboard = () => {
                                 <Link to='/dashboard/rooms'>
                                     <li className="mb-2 px-4 py-4 text-gray-100 flex flex-row  border-gray-300 hover:text-black   hover:bg-white  hover:font-bold rounded">
                                         <span>
-                                            <i class="fa-solid fa-bars-progress"></i>
+                                            <i className="fa-solid fa-bars-progress"></i>
                                         </span>
                                         <span className="ml-2">Rooms</span>
                                     </li>
@@ -74,7 +74,7 @@ const Dashboard = () => {
                                 <Link to='/dashboard/addblog'>
                                     <li className="mb-2 px-4 py-4 text-gray-100 flex flex-row  border-gray-300 hover:text-black   hover:bg-white  hover:font-bold rounded">
                                         <span>
-                                            <i class="fa-brands fa-blogger"></i>
+                                            <i className="fa-brands fa-blogger"></i>
                                         </span>
                                         <span className="ml-2">Add Blog</span>
                                     </li>
@@ -82,7 +82,7 @@ const Dashboard = () => {
                                 <Link to='/dashboard/team'>
                                     <li className="mb-2 px-4 py-4 text-gray-100 flex flex-row  border-gray-300 hover:text-black   hover:bg-white  hover:font-bold rounded">
                                         <span>
-                                            <i class="fa-solid fa-people-group"></i>
+                                            <i className="fa-solid fa-people-group"></i>
                                         </span>
                                         <span className="ml-2">Team</span>
                                     </li>
