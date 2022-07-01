@@ -17,12 +17,12 @@ const Banner = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const name = e.target.name.value;
+        const userName = e.target.name.value;
         const checkIn = e.target.checkIn.value;
         const checkOut = e.target.checkOut.value;
         const adult = e.target.adult.value;
         const child = e.target.child.value;
-        const room = e.target.room.value;
+        const roomId = e.target.room.value;
         const quantity = e.target.quantity.value;
         const phone = e.target.phone.value;
         const time = e.target.time.value;
@@ -42,16 +42,16 @@ const Banner = () => {
         }
 
         const booking = {
-            name,
+            userName,
             checkIn,
             checkOut,
             adult,
             child,
-            room,
+            roomId,
             quantity,
             phone,
             time,
-            Totaldays: days,
+            totalDays: days,
 
         }
 
