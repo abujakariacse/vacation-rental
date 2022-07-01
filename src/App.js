@@ -54,9 +54,9 @@ function App() {
         <Route path='register' element={<Register />}></Route>
         <Route path='passwordreset' element={<PasswordReset />}></Route>
         <Route path='roomDetail/:id' element={<RoomDetail />}></Route>
-        <Route path='cart' element={<Cart />}></Route>
         <Route path='dashboard' element={<Dashboard />}>
           <Route index element={<MyBookings />}></Route>
+          <Route path='cart' element={<Cart />}></Route>
           <Route path='addreview' element={<AddReview />}></Route>
           <Route path='allbookings' element={<AllBookings />}></Route>
           <Route path='customers' element={<Customers />}></Route>
