@@ -1,8 +1,15 @@
 import React from 'react';
 import { useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, Outlet } from 'react-router-dom';
+import auth from '../../firebase.init';
+import Loader from '../Shared/Loader';
 const Dashboard = () => {
+    const [user, loading] = useAuthState(auth);
     const [show, setShow] = useState(false);
+    if (loading) {
+        return <Loader />
+    }
     return (
         <div className='bg-accent relative min-h-screen flex'>
             <div>
@@ -11,13 +18,13 @@ const Dashboard = () => {
                         <div className="flex flex-wrap mt-8">
                             <div className="w-1/2">
                                 <img
-                                    src="https://randomuser.me/api/portraits/women/27.jpg"
+                                    src={user?.photoURL}
                                     className="mx-auto w-14 h-14 rounded-full"
                                     alt='' />
                             </div>
                             <div className="w-1/2 mt-2">
-                                <span className="font-semibold text-white">D. Deniels</span>
-                                <small className='text-white font-semibold block ml-4'>CEO</small>
+                                <span className="font-semibold text-white">{user?.displayName}</span>
+                                <small className='text-white font-semibold block ml-4'>User</small>
                             </div>
                         </div>
                         <div className="mt-10 mb-4">

@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import ContentLoading from '../Shared/ContentLoading';
-import MyBooking from '../Shared/MyBooking';
+import MyBooking from './MyBooking';
 
 const MyBookings = () => {
     const [bookings, setBookings] = useState([]);

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import Loader from './Loader';
 
 const Navbar = () => {
     let [open, setOpen] = useState(false);
@@ -25,7 +26,9 @@ const Navbar = () => {
         { name: 'Contact', link: '/contact' },
 
     ];
-
+    if (loading) {
+        return <Loader />
+    }
     return (
         <div className='sticky z-50 font-[Poppins]'>
             <div className='bg-rose-500 lg:flex justify-around py-2 hidden'>
@@ -68,6 +71,18 @@ const Navbar = () => {
                             user && <li className='lg:ml-4 text-base lg:my-0 my-5'>
                                 <NavLink onClick={handleNavClose} className='text-gray px-3 py-2 rounded-md hover:text-rose-500 duration-500'
                                     to='/dashboard'>Dashboard</NavLink>
+                            </li>
+                        }
+                        {
+                            user && <li className='lg:ml-4 text-base lg:my-0 my-5'>
+                                <Link onClick={handleNavClose}
+                                    to='#'>
+                                    <div class="avatar">
+                                        <div class="w-12 rounded-full">
+                                            <img src={user?.photoURL} alt='' />
+                                        </div>
+                                    </div>
+                                </Link>
                             </li>
                         }
                         {
