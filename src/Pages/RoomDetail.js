@@ -66,7 +66,7 @@ const RoomDetail = () => {
         // to test localstorage
         const stringifiedBooking = JSON.stringify(booking);
         localStorage.setItem('cart', stringifiedBooking);
-        navigate('dashboard/cart');
+        navigate('/dashboard/cart');
     }
 
     if (isLoading) {

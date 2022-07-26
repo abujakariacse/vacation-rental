@@ -1,10 +1,32 @@
-import React from 'react';
-import { useState } from 'react';
+
+import React, { useState } from 'react';
+import { useEffect } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import auth from '../firebase.init';
 
 const Cart = () => {
+    const navigate = useNavigate();
+    const [user] = useAuthState(auth);
     const [targetRoom, setTargetRoom] = useState({});
-    const cartStringified = localStorage.getItem('cart');
-    const cart = JSON.parse(cartStringified);
+    const [cart, setCart] = useState({});
+    const [number, setNumber] = useState(0);
+    useEffect(() => {
+        const cartStringified = localStorage.getItem('cart');
+        const cartFromLS = JSON.parse(cartStringified);
+        setCart(cartFromLS)
+    }, [number])
+
+    useEffect(() => {
+        if (cart?.roomId) {
+            fetch(`http://localhost:5000/room/${cart?.roomId}`)
+                .then(res => res.json())
+                .then(data => setTargetRoom(data))
+
+        }
+    }, [cart?.roomId])
+
     if (cart === null) {
         return <div className='flex items-center justify-center my-52'>
             <div>
@@ -16,16 +38,66 @@ const Cart = () => {
 
         </div>
     }
-    const { phone, roomId, quantity, adult, child, checkIn, checkOut, totalDays, time } = cart;
-    if (roomId) {
-        fetch(`http://localhost:5000/room/${roomId}`)
-            .then(res => res.json())
-            .then(data => setTargetRoom(data));
-    }
+    const { userName, phone, roomId, quantity, adult, child, checkIn, checkOut, totalDays, time } = cart;
+
+
     const totalCost = parseInt(targetRoom?.rentFee) * parseInt(totalDays) * parseInt(quantity);
     const totalCostDayZero = parseInt(targetRoom?.rentFee) * parseInt(quantity);
     const hanleDeleteBooking = () => {
         localStorage.removeItem('cart');
+        setNumber((prev) => prev + 1);
+    }
+    const handleProceedBooking = () => {
+        const RentCost = totalDays > 0 ? totalCost : totalCostDayZero;
+        const email = user?.email;
+        const roomName = targetRoom?.name;
+        const booking = {
+            userName,
+            email,
+            phone,
+            roomName,
+            roomId,
+            quantity,
+            adult,
+            child,
+            checkIn,
+            checkOut,
+            totalDays,
+            time,
+            RentCost
+        }
+        fetch('http://localhost:5000/bookOne', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(booking)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        text: "Go to 'My Booking' to see your all bookings",
+                        title: 'Booking Successful',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    localStorage.removeItem('cart');
+                    navigate('/dashboard');
+
+                }
+                else {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'error',
+                        title: 'Something went wrong',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
     }
     return (
         <div className='font-[Poppins] min-h-screen'>
@@ -65,7 +137,7 @@ const Cart = () => {
                     </tbody>
                 </table>
                 <div className='flex justify-center mb-5'>
-                    <button className='bg-primary px-3 text-white font-[poppins] py-2 rounded lg:ml-8 hover:border border-primary hover:bg-transparent hover:text-primary duration-500'>
+                    <button onClick={handleProceedBooking} className='bg-primary px-3 text-white font-[poppins] py-2 rounded lg:ml-8 hover:border border-primary hover:bg-transparent hover:text-primary duration-500'>
                         Proceed Booking
                     </button>
                 </div>

@@ -64,10 +64,12 @@ const Navbar = () => {
                                     to={link.link}>{link.name}</NavLink>
                             </li>)
                         }
-                        <li className='lg:ml-4 text-base lg:my-0 my-5'>
-                            <NavLink onClick={handleNavClose} className='text-gray px-3 py-2 rounded-md hover:text-rose-500 duration-500'
-                                to='/dashboard'>Dashboard</NavLink>
-                        </li>
+                        {
+                            user && <li className='lg:ml-4 text-base lg:my-0 my-5'>
+                                <NavLink onClick={handleNavClose} className='text-gray px-3 py-2 rounded-md hover:text-rose-500 duration-500'
+                                    to='/dashboard'>Dashboard</NavLink>
+                            </li>
+                        }
                         {
                             user ?
                                 <li className='lg:ml-4 text-base lg:my-0 my-5'>

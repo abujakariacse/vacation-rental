@@ -7,6 +7,7 @@ import BgImage from '../../images/banner.webp';
 import useRooms from '../../hooks/useRooms';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import Loader from '../Shared/Loader';
 // import Loader from '../Shared/Loader';
 
 const Banner = () => {
@@ -69,7 +70,7 @@ const Banner = () => {
 
     };
     if (isLoading) {
-        return <p>Loading....</p>
+        return <Loader />
     };
     return (
         <div>
