@@ -48,9 +48,10 @@ const Cart = () => {
         setNumber((prev) => prev + 1);
     }
     const handleProceedBooking = () => {
-        const RentCost = totalDays > 0 ? totalCost : totalCostDayZero;
+        const rentCost = totalDays > 0 ? totalCost : totalCostDayZero;
         const email = user?.email;
         const roomName = targetRoom?.name;
+        const perDayCost = targetRoom?.rentFee;
         const booking = {
             userName,
             email,
@@ -64,7 +65,9 @@ const Cart = () => {
             checkOut,
             totalDays,
             time,
-            RentCost
+            perDayCost,
+            rentCost,
+            status: 'Pending'
         }
         fetch('http://localhost:5000/bookOne', {
             method: 'POST',
@@ -120,7 +123,7 @@ const Cart = () => {
 
                         </tr>
                     </thead>
-                    <tbody className="flex-1 sm:flex-none">
+                    <tbody className="flex-1 sm:flex-none text-center">
                         <tr className="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
                             <td className="border-grey-light border hover:bg-gray-100 p-3">{targetRoom.name}</td>
                             <td className="border-grey-light border hover:bg-gray-100 p-3">{checkIn}</td>
