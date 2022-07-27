@@ -55,7 +55,7 @@ const MyBooking = ({ booking }) => {
             <td className="border-grey-light border hover:bg-gray-100 p-3">{child}</td>
             <td className="border-grey-light border hover:bg-gray-100 p-3">${perDayCost}</td>
             <td className="border-grey-light border hover:bg-gray-100 p-3">${rentCost}</td>
-            <td className="border-grey-light border p-3 text-white hover:font-medium cursor-pointer bg-primary rounded-sm text-center">{status}</td>
+            <td className={`border-grey-light border p-3 text-white hover:font-medium select-none rounded-sm text-center ${status === 'Pending' && 'btn-info'} ${status === 'Approved' && 'btn-success'} ${status === 'Rejected' && 'btn-primary'} ${status === 'Checkout' && 'btn-warning'}`}>{status}</td>
             <td onClick={() => hanleDeleteBooking(_id)} className="border-grey-light border hover:bg-gray-100 p-3 text-red-600 hover:text-red-700 hover:font-medium cursor-pointer text-xl text-center"><i className="fa-solid fa-trash-can"></i></td>
         </tr>
 

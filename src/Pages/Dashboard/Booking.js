@@ -55,8 +55,7 @@ const Booking = ({ booking }) => {
                 <select defaultValue={selected} onChange={e => {
                     setSelected(e.target.value)
 
-                }} className="select select-bordered w-full max-w-xs btn-primary text-sm">
-                    {/* <option disabled className='bg-white text-gray-400 text-base'>{selected}</option> */}
+                }} className={`select select-bordered w-full max-w-xs text-sm ${status === 'Pending' && 'btn-info'} ${status === 'Approved' && 'btn-success'} ${status === 'Rejected' && 'btn-primary'} ${status === 'Checkout' && 'btn-warning'}`}>
                     <option className='bg-white text-neutral text-base'>Pending</option>
                     <option className='bg-white text-neutral text-base'>Rejected</option>
                     <option className='bg-white text-neutral text-base'>Approved</option>

@@ -77,8 +77,8 @@ const Navbar = () => {
                             user && <li className='lg:ml-4 text-base lg:my-0 my-5'>
                                 <Link onClick={handleNavClose}
                                     to='#'>
-                                    <div class="avatar">
-                                        <div class="w-12 rounded-full">
+                                    <div className="avatar">
+                                        <div className="w-12 rounded-full">
                                             <img src={user?.photoURL} alt='' />
                                         </div>
                                     </div>

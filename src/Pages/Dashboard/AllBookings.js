@@ -9,7 +9,7 @@ const AllBookings = () => {
         fetch('http://localhost:5000/allbookings')
             .then(res => res.json())
             .then(data => setBookings(data))
-    }, [])
+    }, [bookings])
     return (
         <div className='font-[-Poppins]'>
             <h2 className='text-3xl'>All Bookings</h2>
