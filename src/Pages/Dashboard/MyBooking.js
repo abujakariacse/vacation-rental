@@ -21,12 +21,21 @@ const MyBooking = ({ booking }) => {
                         .then(res => res.json())
                         .then(data => {
                             if (data.deletedCount > 0) {
-                                Swal.fire({
-                                    icon: 'success',
-                                    title: 'Booking Removed',
-                                    text: 'Booking successfully removed',
+                                const Toast = Swal.mixin({
+                                    toast: true,
+                                    position: 'top-end',
                                     showConfirmButton: false,
-                                    timer: 1200
+                                    timer: 3000,
+                                    timerProgressBar: true,
+                                    didOpen: (toast) => {
+                                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                    }
+                                })
+
+                                Toast.fire({
+                                    icon: 'success',
+                                    title: 'Deleted successfully'
                                 })
                             }
                         })

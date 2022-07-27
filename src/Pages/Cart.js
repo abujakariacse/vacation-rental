@@ -79,13 +79,21 @@ const Cart = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'success',
-                        text: "Go to 'My Booking' to see your all bookings",
-                        title: 'Booking Successful',
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
                         showConfirmButton: false,
-                        timer: 1500
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
+
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Booked successfully'
                     })
                     localStorage.removeItem('cart');
                     navigate('/dashboard');

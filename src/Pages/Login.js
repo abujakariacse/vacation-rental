@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import auth from '../firebase.init';
 import { useSignInWithGoogle, useSignInWithGithub, useSignInWithFacebook, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -23,8 +24,23 @@ const Login = () => {
         signInWithEmailAndPassword(data.email, data.password)
     }
     if (user || gUser || gitUser || fUser) {
-        console.log(user, gUser, gitUser, fUser);
-        navigate('/')
+        navigate('/');
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
+        Toast.fire({
+            icon: 'success',
+            title: 'Signed in successfully'
+        })
     }
     if (loading || gLoading || gitLoading || fLoading) {
         console.log(loading, gLoading, gitLoading, fLoading, 'loading')

@@ -1,16 +1,15 @@
 import React from 'react';
-import { useQuery } from "react-query";
-import ContentLoading from '../Shared/ContentLoading';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import Booking from './Booking';
 
 const AllBookings = () => {
-    const { data: bookings, isLoading } = useQuery('allbookings', () =>
+    const [bookings, setBookings] = useState([]);
+    useEffect(() => {
         fetch('http://localhost:5000/allbookings')
-            .then(res => res.json()));
-    console.log(bookings)
-    if (isLoading) {
-        return <ContentLoading />
-    }
+            .then(res => res.json())
+            .then(data => setBookings(data))
+    }, [])
     return (
         <div className='font-[-Poppins]'>
             <h2 className='text-3xl'>All Bookings</h2>
