@@ -51,7 +51,7 @@ const Dashboard = () => {
                                         <span>
                                             <i className="fa-solid fa-star-half-stroke"></i>
                                         </span>
-                                        <span className="ml-2">Add a Review</span>
+                                        <span className="ml-2">Rate Us</span>
                                     </li>
                                 </Link>
                                 <Link to='/dashboard/allbookings'>
@@ -59,7 +59,7 @@ const Dashboard = () => {
                                         <span>
                                             <i className="fa-solid fa-align-justify"></i>
                                         </span>
-                                        <span className="ml-2">All Bookings</span>
+                                        <span className="ml-2">Bookings</span>
                                     </li>
                                 </Link>
                                 <Link to='/dashboard/customers'>
