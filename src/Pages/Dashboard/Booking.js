@@ -7,7 +7,7 @@ const Booking = ({ booking }) => {
     const [selected, setSelected] = useState(status);
     useEffect(() => {
         const status = { status: selected };
-        fetch(`http://localhost:5000/booking/update/${_id}`, {
+        fetch(`https://vacation-rental-aj.herokuapp.com/booking/update/${_id}`, {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json"

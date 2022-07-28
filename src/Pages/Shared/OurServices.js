@@ -5,7 +5,7 @@ import Loader from './Loader';
 
 const OurServices = () => {
     const { data: services, isLoading } = useQuery('services', () =>
-        fetch('http://localhost:5000/services')
+        fetch('https://vacation-rental-aj.herokuapp.com/services')
             .then(res => res.json()));
     if (isLoading) {
         return <Loader />

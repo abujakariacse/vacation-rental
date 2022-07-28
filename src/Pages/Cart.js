@@ -20,7 +20,7 @@ const Cart = () => {
 
     useEffect(() => {
         if (cart?.roomId) {
-            fetch(`http://localhost:5000/room/${cart?.roomId}`)
+            fetch(`https://vacation-rental-aj.herokuapp.com/room/${cart?.roomId}`)
                 .then(res => res.json())
                 .then(data => setTargetRoom(data))
 
@@ -69,7 +69,7 @@ const Cart = () => {
             rentCost,
             status: 'Pending'
         }
-        fetch('http://localhost:5000/bookOne', {
+        fetch('https://vacation-rental-aj.herokuapp.com/bookOne', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"

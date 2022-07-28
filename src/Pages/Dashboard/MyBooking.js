@@ -15,7 +15,7 @@ const MyBooking = ({ booking }) => {
         })
             .then(result => {
                 if (result.isConfirmed) {
-                    fetch(`http://localhost:5000/mybooking/${id}`, {
+                    fetch(`https://vacation-rental-aj.herokuapp.com/mybooking/${id}`, {
                         method: 'DELETE',
                     })
                         .then(res => res.json())

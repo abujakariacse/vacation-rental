@@ -12,7 +12,7 @@ const MyBookings = () => {
     const email = user?.email;
     useEffect(() => {
         if (email) {
-            fetch(`http://localhost:5000/mybookings?email=${email}`)
+            fetch(`https://vacation-rental-aj.herokuapp.com/mybookings?email=${email}`)
                 .then(res => res.json())
                 .then(data => setBookings(data))
         }

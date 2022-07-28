@@ -12,7 +12,7 @@ const RoomDetail = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const { data: roomDetail, isLoading } = useQuery('roomDetail', () =>
-        fetch(`http://localhost:5000/room/${id}`)
+        fetch(`https://vacation-rental-aj.herokuapp.com/room/${id}`)
             .then(res => res.json())
     );
     const [checkIn, setCheckIn] = useState(null);
