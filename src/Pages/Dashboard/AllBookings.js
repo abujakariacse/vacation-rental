@@ -11,7 +11,7 @@ const AllBookings = () => {
             .then(data => setBookings(data))
     }, [bookings])
     return (
-        <div className='font-[-Poppins]'>
+        <div className='font-[Poppins] text-sm md:w-11/12 mx-auto'>
             <h2 className='text-3xl'>All Bookings</h2>
             <table className="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
                 <thead className="text-white">

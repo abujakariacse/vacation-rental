@@ -21,7 +21,7 @@ const MyBookings = () => {
         return <ContentLoading />
     }
     return (
-        <div>
+        <div className='font-[Poppins] md:w-11/12 mx-auto'>
             <h2 className='text-3xl'>My Bookings</h2>
             <table className="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
                 <thead className="text-white">

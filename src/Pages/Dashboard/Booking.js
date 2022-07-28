@@ -40,9 +40,9 @@ const Booking = ({ booking }) => {
     return (
         <tr className="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0 text-center">
             <td className="border-grey-light border hover:bg-gray-100 p-3">{roomName}</td>
-            <td className="border-grey-light border hover:bg-gray-100 p-3">{userName}</td>
-            <td className="border-grey-light border hover:bg-gray-100 p-3">{email}</td>
-            <td className="border-grey-light border hover:bg-gray-100 p-3">{phone}</td>
+            <td className="border-grey-light border hover:bg-gray-100 p-3">{userName?.split(' ')[0]}</td>
+            <td className="border-grey-light border hover:bg-gray-100 p-3">{email?.split('@')[0]}</td>
+            <td className="border-grey-light border hover:bg-gray-100 p-3">{phone?.slice(0, 11)}</td>
             <td className="border-grey-light border hover:bg-gray-100 p-3">{checkIn}</td>
             <td className="border-grey-light border hover:bg-gray-100 p-3">{time}</td>
             <td className="border-grey-light border hover:bg-gray-100 p-3">{checkOut}</td>

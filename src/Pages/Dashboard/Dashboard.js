@@ -11,7 +11,7 @@ const Dashboard = () => {
         return <Loader />
     }
     return (
-        <div className='bg-accent relative min-h-screen flex'>
+        <div className='bg-accent relative min-h-screen flex font-[Poppins]'>
             <div>
                 <div className={`absolute ${show ? 'left-0 transition-all duration-500' : 'left-[-180px] transition-all duration-500'} min-h-screen`}>
                     <nav className="flex flex-col bg-primary w-52 h-screen px-4 tex-gray-900 rounded-sm">
