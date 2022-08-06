@@ -6,7 +6,7 @@ import Loader from './Shared/Loader';
 const BlogDetail = () => {
     const { id } = useParams();
     const { data: blogdetail, isLoading } = useQuery('blogdetail', () =>
-        fetch(`https://vacation-rental-aj.herokuapp.com/blogdetail/${id}`)
+        fetch(`http://localhost:5000/blogdetail/${id}`)
             .then(res => res.json()
             )
     );

@@ -13,7 +13,7 @@ const Dashboard = () => {
     return (
         <div className='bg-accent relative min-h-screen flex font-[Poppins]'>
             <div>
-                <div className={`absolute ${show ? 'left-0 transition-all duration-500' : 'left-[-180px] transition-all duration-500'} min-h-screen`}>
+                <div className={`z-50 absolute ${show ? 'left-0 transition-all duration-500' : 'left-[-180px] transition-all duration-500'} min-h-screen`}>
                     <nav className="flex flex-col bg-primary w-52 h-screen px-4 tex-gray-900 rounded-sm">
                         <div className="flex flex-wrap mt-8">
                             <div className="w-1/2">
@@ -23,8 +23,10 @@ const Dashboard = () => {
                                     alt='' />
                             </div>
                             <div className="w-1/2 mt-2">
-                                <span className="font-semibold text-white">{user?.displayName}</span>
-                                <small className='text-white font-semibold block ml-4'>User</small>
+                                <span className="font-semibold text-white">
+                                    {user?.displayName.split(' ')[0]}
+                                </span>
+                                <small className='text-white block'>User</small>
                             </div>
                         </div>
                         <div className="mt-10 mb-4">

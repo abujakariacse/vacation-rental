@@ -6,7 +6,7 @@ const Footer = () => {
     const onSubmit = e => {
         e.preventDefault();
         const email = e.target.emailField.value;
-        fetch(`https://vacation-rental-aj.herokuapp.com/subscribe?email=${email}`, {
+        fetch(`http://localhost:5000/subscribe?email=${email}`, {
             method: 'POST',
         })
             .then(res => res.json())

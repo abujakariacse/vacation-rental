@@ -21,7 +21,7 @@ const Reviews = () => {
     }, []);
 
     const { data: reviews, isLoading } = useQuery('reviews', () =>
-        fetch('https://vacation-rental-aj.herokuapp.com/reviews')
+        fetch('http://localhost:5000/reviews')
             .then(res => res.json()));
     if (isLoading) {
         return <ContentLoading />
