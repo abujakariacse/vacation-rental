@@ -4,17 +4,19 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import Loader from "./Loader";
-
+// Headless UI
 import { Menu, Transition } from "@headlessui/react";
 import AskQuestionIcon from "./NavIcons/ask-question-icon";
 import LogoutIcon from "./NavIcons/logout-icon";
 import SettingIcon from "./NavIcons/setting-icon";
+import UseProfilePhoto from "../../hooks/useProfilePhoto";
 
 const Navbar = () => {
   let [open, setOpen] = useState(false);
   const [user, loading, error] = useAuthState(auth);
-  const navigate = useNavigate();
 
+  const navigate = useNavigate();
+  const shownImage = UseProfilePhoto();
   const handleSignOut = () => {
     signOut(auth);
     navigate("/login");
@@ -121,26 +123,11 @@ const Navbar = () => {
                       <Menu.Button className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none">
                         <div className="p-0.5 rounded-full">
                           <div className="avatar">
-                            {user.photoURL ? (
-                              <img src={`${user.photoURL}`} />
-                            ) : (
-                              <div className="w-12 pt-1">
-                                <div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
-                                  <svg
-                                    className="absolute w-12 h-12 text-gray-400 -left-1"
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                                      clipRule="evenodd"
-                                    ></path>
-                                  </svg>
-                                </div>
-                              </div>
-                            )}
+                            <img
+                              width="20px"
+                              height="20px"
+                              src={`${shownImage}`}
+                            />
                           </div>
                         </div>
                       </Menu.Button>
@@ -162,50 +149,14 @@ const Navbar = () => {
                             <div className="bg-gradient-to-r inline-block from-cyan-500 to-blue-500  p-0.5 rounded-full">
                               <div className="bg-white p-0.5 inline-block rounded-full">
                                 <img
-                                  src={
-                                    user.photoURL || (
-                                      <svg
-                                        className="absolute w-12 h-12 text-gray-400 -left-1"
-                                        fill="currentColor"
-                                        viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                      >
-                                        <path
-                                          fillRule="evenodd"
-                                          d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                                          clipRule="evenodd"
-                                        ></path>
-                                      </svg>
-                                    )
-                                  }
-                                  //   alt={"username"}s
+                                  src={shownImage}
+                                  alt={"username"}
                                   className="h-20 w-20 rounded-full object-cover inline-block object-center cursor-pointer mx-auto"
                                 />
                               </div>
-
-                              {/* 
-                              
-                              <div className="w-12 pt-1">
-                                <div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
-                                  <svg
-                                    className="absolute w-12 h-12 text-gray-400 -left-1"
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                                      clipRule="evenodd"
-                                    ></path>
-                                  </svg>
-                                </div>
-                              </div>
-                              
-                              */}
                             </div>
                             <p className="text-lg font-medium mt-2">
-                              {"fullName"}
+                              {user?.displayName}
                             </p>
                             <Link
                               prefetch="intent"
