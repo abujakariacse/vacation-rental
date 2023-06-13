@@ -55,7 +55,7 @@ const MyBooking = ({ booking }) => {
             <td>{child}</td>
             <td>${perDayCost}</td>
             <td>${rentCost}</td>
-            <td className={`border p-3 select-none rounded-sm text-center ${status === 'Pending' && 'bg-info'} ${status === 'Approved' && 'bg-success'} ${status === 'Rejected' && 'bg-primary'} ${status === 'Checkout' && 'bg-black text-white'}`}>{status}</td>
+            <td className={`text-white border p-3 select-none rounded-sm text-center ${status === 'Pending' && 'bg-info'} ${status === 'Approved' && 'bg-success'} ${status === 'Rejected' && 'bg-primary'} ${status === 'Checkout' && 'bg-black text-white'}`}>{status}</td>
             {
                 status === 'Approved' || status === 'Checkout' ?
                     <td className={`border-grey-light border hover:bg-gray-100 p-3 text-green-600 text-xl text-center disabled`}><i className="fa-solid fa-circle-check"></i></td>
