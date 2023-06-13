@@ -1,9 +1,14 @@
 import { signOut } from "firebase/auth";
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import Loader from "./Loader";
+
+import { Menu, Transition } from "@headlessui/react";
+import AskQuestionIcon from "./NavIcons/ask-question-icon";
+import LogoutIcon from "./NavIcons/logout-icon";
+import SettingIcon from "./NavIcons/setting-icon";
 
 const Navbar = () => {
   let [open, setOpen] = useState(false);
@@ -108,42 +113,150 @@ const Navbar = () => {
                 </NavLink>
               </li>
             )}
-            {user && (
+            {user ? (
               <li className="lg:ml-4 text-base lg:my-0">
                 <Link onClick={handleNavClose} to="#">
-                  <div className="avatar">
-                    {user.photoURL ? (
-                      <img src={`${user.photoURL}`} />
-                    ) : (
-                      <div className="w-12 pt-2">
-                        <div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
-                          <svg
-                            className="absolute w-12 h-12 text-gray-400 -left-1"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                              clipRule="evenodd"
-                            ></path>
-                          </svg>
+                  <Menu as="div" className="relative inline-block text-left">
+                    <div>
+                      <Menu.Button className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none">
+                        <div className="p-0.5 rounded-full">
+                          <div className="avatar">
+                            {user.photoURL ? (
+                              <img src={`${user.photoURL}`} />
+                            ) : (
+                              <div className="w-12 pt-1">
+                                <div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
+                                  <svg
+                                    className="absolute w-12 h-12 text-gray-400 -left-1"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      fillRule="evenodd"
+                                      d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                      clipRule="evenodd"
+                                    ></path>
+                                  </svg>
+                                </div>
+                              </div>
+                            )}
+                          </div>
                         </div>
-                      </div>
-                    )}
-                  </div>
-                </Link>
-              </li>
-            )}
-            {user ? (
-              <li className="lg:ml-4 text-base lg:my-0 my-5">
-                <Link
-                  onClick={handleSignOut}
-                  className="text-gray px-3 py-2 rounded-md hover:text-rose-500 duration-500"
-                  to="/login"
-                >
-                  Sign Out
+                      </Menu.Button>
+                    </div>
+
+                    <Transition
+                      as={Fragment}
+                      enter="transition ease-out duration-100"
+                      enterFrom="transform opacity-0 scale-95"
+                      enterTo="transform opacity-100 scale-100"
+                      leave="transition ease-in duration-75"
+                      leaveFrom="transform opacity-100 scale-100"
+                      leaveTo="transform opacity-0 scale-95"
+                    >
+                      <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
+                        <>
+                          {" "}
+                          <div className="text-center my-2">
+                            <div className="bg-gradient-to-r inline-block from-cyan-500 to-blue-500  p-0.5 rounded-full">
+                              <div className="bg-white p-0.5 inline-block rounded-full">
+                                <img
+                                  src={
+                                    user.photoURL || (
+                                      <svg
+                                        className="absolute w-12 h-12 text-gray-400 -left-1"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <path
+                                          fillRule="evenodd"
+                                          d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                          clipRule="evenodd"
+                                        ></path>
+                                      </svg>
+                                    )
+                                  }
+                                  //   alt={"username"}s
+                                  className="h-20 w-20 rounded-full object-cover inline-block object-center cursor-pointer mx-auto"
+                                />
+                              </div>
+
+                              {/* 
+                              
+                              <div className="w-12 pt-1">
+                                <div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
+                                  <svg
+                                    className="absolute w-12 h-12 text-gray-400 -left-1"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      fillRule="evenodd"
+                                      d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                      clipRule="evenodd"
+                                    ></path>
+                                  </svg>
+                                </div>
+                              </div>
+                              
+                              */}
+                            </div>
+                            <p className="text-lg font-medium mt-2">
+                              {"fullName"}
+                            </p>
+                            <Link
+                              prefetch="intent"
+                              to={`/user/${"username"}`}
+                              className="px-4 py-2 bg-blue-500 shadow-blue-500/30 shadow-xl text-white inline-block text-sm rounded-full mt-2 mb-4"
+                            >
+                              View Profile
+                            </Link>
+                          </div>
+                        </>
+                        <div className="py-1">
+                          <Menu.Item>
+                            {() => (
+                              <Link
+                                prefetch="intent"
+                                to="/question/create"
+                                className="py-3 px-4 w-full flex hover:bg-gray-100 text-slate-700 items-center space-x-2"
+                              >
+                                <AskQuestionIcon />
+                                <span className="text-sm">Ask Question</span>
+                              </Link>
+                            )}
+                          </Menu.Item>
+                          <Menu.Item>
+                            {() => (
+                              <Link
+                                prefetch="intent"
+                                to="/setting"
+                                className="py-3 px-4 w-full flex hover:bg-gray-100 text-slate-700 items-center space-x-2"
+                              >
+                                <SettingIcon />
+                                <span className="text-sm">Settings</span>
+                              </Link>
+                            )}
+                          </Menu.Item>
+                          <Menu.Item>
+                            {() => (
+                              <Link
+                                onClick={handleSignOut}
+                                className="py-3 px-4 w-full flex hover:bg-gray-100 text-slate-700 items-center space-x-2"
+                                to="/login"
+                              >
+                                <LogoutIcon />
+                                <span className="text-sm">Logout</span>
+                              </Link>
+                            )}
+                          </Menu.Item>
+                        </div>
+                      </Menu.Items>
+                    </Transition>
+                  </Menu>
                 </Link>
               </li>
             ) : (

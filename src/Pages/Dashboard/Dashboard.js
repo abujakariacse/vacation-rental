@@ -23,13 +23,32 @@ const Dashboard = () => {
         >
           <nav className="flex flex-col bg-primary w-52 h-screen px-4 tex-gray-900 rounded-sm">
             <div className="flex flex-wrap mt-8">
-              <div className="w-1/2">
-                <img
-                  src={user?.photoURL}
-                  className="mx-auto w-14 h-14 rounded-full"
-                  alt=""
-                />
-              </div>
+              {user.photoURL ? (
+                <div className="w-1/2">
+                  <img
+                    src={user?.photoURL}
+                    className="mx-auto w-14 h-14 rounded-full"
+                    alt=""
+                  />
+                </div>
+              ) : (
+                <div className="w-12 pt-1 ml-8">
+                  <div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
+                    <svg
+                      className="absolute w-12 h-12 text-gray-400 -left-1"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                        clipRule="evenodd"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+              )}
               <div className="w-1/2 mt-2">
                 <span className="font-semibold text-white">
                   {user?.displayName.split(" ")[0]}
