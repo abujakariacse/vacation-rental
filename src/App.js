@@ -26,7 +26,7 @@ import Team from "./Pages/Dashboard/Team";
 import BlogDetail from "./Pages/BlogDetail";
 
 function App() {
-  const [Loading, setLoading] = useState(false);
+  /*   const [Loading, setLoading] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -37,7 +37,7 @@ function App() {
   }, []);
   if (Loading) {
     return <Loader />;
-  }
+  } */
   return (
     <div>
       <Navbar />
