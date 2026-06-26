@@ -1,7 +1,8 @@
 import { useQuery } from "react-query";
+import { ENDPOINT } from "../config/env";
 const useBlogs = () => {
   const { data: blogs, isLoading } = useQuery("blogs", () =>
-    fetch("http://localhost:5000/blogs").then((res) => res.json())
+    fetch(`${ENDPOINT}/blogs`).then((res) => res.json()),
   );
   return [blogs, isLoading];
 };

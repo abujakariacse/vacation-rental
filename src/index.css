@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .app-container {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  .section-y {
+    @apply py-12 sm:py-16;
+  }
+  .page-y {
+    @apply py-8 sm:py-10;
+  }
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -9,14 +21,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Theme-aware defaults (daisyUI) */
+  background-color: hsl(var(--b1));
+  color: hsl(var(--bc));
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-;
 
 .room-card:hover {
   color: white;
@@ -95,8 +108,8 @@ code {
 }
 
 .contact-form input[type="text"],
-input[type="email"],
-textarea {
+.contact-form input[type="email"],
+.contact-form textarea {
   border-bottom: 2px solid lightgray !important;
   padding: 4px;
 
@@ -111,7 +124,7 @@ textarea {
 }
 
 /* nav active link */
-.nav a.active {
+.site-nav a.active {
   background-color: #F43F5E;
   color: white;
 }
@@ -129,4 +142,9 @@ textarea {
   .room-img {
     height: 600px !important;
   }
+}
+
+/* Equal-height review/testimonial cards */
+.reviews-swiper .swiper-slide {
+  height: auto !important;
 }
